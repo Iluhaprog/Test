@@ -10,6 +10,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     	<result property = "id_profession" 	column = "id_profession"/>
   	</resultMap>
 
+  	<resultMap id = "Test_has_question" type = "com.mycompany.careerguidence.dao.type.Test_has_Questions">
+  		<!--TEST-->
+  		<id 	property = "id_test" 	column = "id_test"/>
+    	<result property = "id_user" 	column = "id_user"/>
+    	<result property = "id_profession" 	column = "id_profession"/>
+    	<!--QUESTION-->
+    	<result property = "name_question" 	column = "name_question"/>
+    	<result property = "flag_question" 	column = "flag_question"/>
+  	</resultMap>
+
 
   	<select id = "getTestById" parameterType = "java.lang.Long" resultMap="Test">
   		
@@ -20,6 +30,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE 
 			id_test = #{id_test};
 		
+  	</select>
+
+	<select id="getTestWithQuestionById" parameterType = "java.lang.Long" resultMap="Test_has_question" >
+  		
+		SELECT 
+			 *
+		FROM 
+			tests,
+			questions,
+		    test_has_question AS thq
+		              
+		    LEFT JOIN tests tt 			 ON thq.id_test = et.id_test
+		    LEFT JOIN questions qt 		 ON thq.id_question = id_question
+		WHERE 
+			id_test = #{id_test};
+
   	</select>
 
   	<select id = "getAll" resultMap = "Test">

@@ -11,6 +11,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     	<result property = "phone_enterprice"       column = "phone_enterprice"/>
   	</resultMap>
 
+  	<resultMap id = "Enterprice_has_work" type = "com.mycompany.careerguidence.dao.type.Enterprice_has_work">
+  		<!--ENTERPRICE-->
+  		<id 	property = "id_enterprice" 			column="id_enterprice"/>
+    	<result property = "name_enterprice" 		column = "name_enterprice"/>
+    	<result property = "geolocation_enterprice" column = "geolocation_enterprice"/>
+    	<result property = "phone_enterprice"       column = "phone_enterprice"/>
+  		<!--WORK-->
+  		<result property = "name_work" 		column = "name_work"/>
+    	<result property = "position_work" 	column = "position_work"/>
+  	</resultMap>
+
 
   	<select id = "getEnterpriceById" parameterType = "java.lang.Long" resultMap="Enterprice">
   		
@@ -21,6 +32,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE 
 			id_enterprise = #{id_enterprise};
 		
+  	</select>
+
+  	<select id="getEnterpriseWithWorkById" parameterType = "java.lang.Long" resultMap="Enterprice_has_work" >
+  		
+		SELECT 
+			 *
+		FROM 
+			enterprises ,
+			works,
+		    enterprises_has_work AS ehw
+		              
+		    LEFT JOIN enterprises et ON ehw.id_user = et.id_enterprice
+		    LEFT JOIN works wt 		 ON ehw.id_role = wt.id_works
+		WHERE 
+			id_enterprise = #{id_enterprises};
+
   	</select>
 
   	<select id = "getAll" resultMap = "Enterprice">

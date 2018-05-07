@@ -1,5 +1,6 @@
 package com.mycompany.careerguidence.mappers;
 
+import com.mycompany.careerguidence.dao.type.Test_has_Question;
 import com.mycompany.careerguidence.dao.type.Tests;
 import java.util.List;
 
@@ -15,5 +16,7 @@ public interface TestsMapper {
     public void deleteTestById(Long id);
     //SELECT ALL
     public List<Tests> getAll();
+    //GET TEST WITH QUESTION
+    public Test_has_Question getTestWithQuestionById(Long id);
     
 }
