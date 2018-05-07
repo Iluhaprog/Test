@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace = "com.mycompany.careerguidence.mappers.TestsMapper">
+
+	<resultMap id = "Test" type = "com.mycompany.careerguidence.dao.type.Tests">
+    	<id 	property = "id_test" 	column = "id_test"/>
+    	<result property = "id_user" 	column = "id_user"/>
+    	<result property = "id_profession" 	column = "id_profession"/>
+  	</resultMap>
+
+
+  	<select id = "getTestById" parameterType = "java.lang.Long" resultMap="Test">
+  		
+		SELECT
+			*
+		FROM
+			tests
+		WHERE 
+			id_test = #{id_test};
+		
+  	</select>
+
+  	<select id = "getAll" resultMap = "Test">
+  		
+		SELECT 
+			*
+		FROM 
+			tests;
+
+  	</select>
+
+  	<insert id = "insertTest" parameterType = "com.mycompany.careerguidence.dao.type.Tests">
+  		
+		INSER INTO tests(id_test,id_user,id_profession) 
+
+		VALUES
+			(id_test		= #{id_question},
+			id_user 		= #{name_question},
+			id_profession 	= #{flag_question}
+			);
+
+  	</insert>
+
+  	<update id = "updateTest" parameterType="com.mycompany.careerguidence.dao.type.Tests">
+  		
+  		UPDATE tests
+  		SET id_test		= #{id_question},
+			id_user 		= #{name_question},
+			id_profession 	= #{flag_question};
+
+  	</update>
+
+  	<delete id = "deleteTestById" parameterType = "java.lang.Long">
+  		
+		DELETE FROM     tests
+		WHERE id_test		= #{id_question};
+
+  	</delete>
+	
+
+</mapper>

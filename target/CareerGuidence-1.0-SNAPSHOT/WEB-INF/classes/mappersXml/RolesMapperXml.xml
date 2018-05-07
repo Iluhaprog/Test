@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace = "com.mycompany.careerguidence.mappers.RolesMapper">
+
+	<resultMap id = "Role" type = "com.mycompany.careerguidence.dao.type.Roles">
+    	<id 	property="id_role" 			column="id_role"/>
+    	<result property = "name_role" 		column = "name_role"/>
+  	</resultMap>
+
+
+  	<select id = "getRoleById" parameterType = "java.lang.Long" resultMap="Role">
+  		
+		SELECT
+			*
+		FROM
+			roles 
+		WHERE 
+			id_role = #{id_role};
+		
+  	</select>
+
+  	<select id = "getAll" resultMap = "Role">
+  		
+		SELECT 
+			*
+		FROM 
+			roles;
+
+  	</select>
+
+  	<insert id = "insertRole" parameterType = "com.mycompany.careerguidence.dao.type.Roles">
+  		
+		INSER INTO roles(id_roles,name_roles) 
+
+		VALUES
+			(id_role 		= #{id_role},
+			name_role 		= #{name_role});
+
+  	</insert>
+
+  	<update id = "updateRole" parameterType="com.mycompany.careerguidence.dao.type.Roles">
+  		
+  		UPDATE roles
+  		SET id_role 		= #{id_role},
+			name_role 		= #{name_role};
+
+  	</update>
+
+  	<delete id = "deleteRoleById" parameterType = "java.lang.Long">
+  		
+		DELETE FROM     roles
+		WHERE id_role 	= #{id_role};
+
+  	</delete>
+	
+
+</mapper>

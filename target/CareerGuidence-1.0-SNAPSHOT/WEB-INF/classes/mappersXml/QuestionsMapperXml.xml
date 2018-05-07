@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace = "com.mycompany.careerguidence.mappers.QuestionsMapper">
+
+	<resultMap id = "Question" type = "com.mycompany.careerguidence.dao.type.Questions">
+    	<id 	property = "id_question" 	column = "id_question"/>
+    	<result property = "name_question" 	column = "name_question"/>
+    	<result property = "flag_question" 	column = "flag_question"/>
+  	</resultMap>
+
+
+  	<select id = "getQuestionById" parameterType = "java.lang.Long" resultMap="Question">
+  		
+		SELECT
+			*
+		FROM
+			questions
+		WHERE 
+			id_question = #{id_question};
+		
+  	</select>
+
+  	<select id = "getAll" resultMap = "Question">
+  		
+		SELECT 
+			*
+		FROM 
+			questions;
+
+  	</select>
+
+  	<insert id = "insertQuestion" parameterType = "com.mycompany.careerguidence.dao.type.Questions">
+  		
+		INSER INTO questions(id_question,name_question,flag_question) 
+
+		VALUES
+			(id_question	= #{id_question},
+			name_question 	= #{name_question},
+			flag_question 	= #{flag_question}
+			);
+
+  	</insert>
+
+  	<update id = "updateQuestion" parameterType="com.mycompany.careerguidence.dao.type.Questions">
+  		
+  		UPDATE questions
+  		SET id_question		= #{id_question},
+			name_question 	= #{name_question},
+			flag_question 	= #{flag_question};
+
+  	</update>
+
+  	<delete id = "deleteQuestionById" parameterType = "java.lang.Long">
+  		
+		DELETE FROM     questions
+		WHERE id_question   = #{id_question};
+
+  	</delete>
+	
+
+</mapper>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace = "com.mycompany.careerguidence.mappers.EnterpriceMapper">
+
+	<resultMap id = "Enterprice" type = "com.mycompany.careerguidence.dao.type.Enterprices">
+    	<id 	property = "id_enterprice" 			column="id_enterprice"/>
+    	<result property = "name_enterprice" 		column = "name_enterprice"/>
+    	<result property = "geolocation_enterprice" column = "geolocation_enterprice"/>
+    	<result property = "phone_enterprice"       column = "phone_enterprice"/>
+  	</resultMap>
+
+
+  	<select id = "getEnterpriceById" parameterType = "java.lang.Long" resultMap="Enterprice">
+  		
+		SELECT
+			*
+		FROM
+			enterprises 
+		WHERE 
+			id_enterprise = #{id_enterprise};
+		
+  	</select>
+
+  	<select id = "getAll" resultMap = "Enterprice">
+  		
+		SELECT 
+			*
+		FROM 
+			enterprises;
+
+  	</select>
+
+  	<insert id = "insertEnterprice" parameterType = "com.mycompany.careerguidence.dao.type.Enterprices">
+  		
+		INSER INTO enterprices(id_enterprice,name_enterprices,geolocation_enterprice,phone_enterprice) 
+
+		VALUES
+			(id_enterprice 			= #{id_enterprice},
+			name_enterprice 		= #{name_enterprice},
+			geolocation_enterprice 	= #{geolocation_enterprice},
+			phone_enterprice 		= #{phone_enterprice}
+			);
+
+  	</insert>
+
+  	<update id = "updateEnterprice" parameterType="com.mycompany.careerguidence.dao.type.Enterprices">
+  		
+  		UPDATE enterprices
+  		SET id_enterprice 			= #{id_enterprice},
+			name_enterprice 		= #{name_enterprice},
+			geolocation_enterprice 	= #{geolocation_enterprice},
+			phone_enterprice 		= #{phone_enterprice};
+
+  	</update>
+
+  	<delete id = "deleteEnterpriceById" parameterType = "java.lang.Long">
+  		
+		DELETE FROM     enterprices
+		WHERE id_enterprice 	= #{id_enterprice};
+
+  	</delete>
+	
+
+</mapper>

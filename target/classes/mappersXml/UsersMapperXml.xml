@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace = "com.mycompany.careerguidence.mappers.UsersMapper">
+
+	<!--USER WITH ROLE-->
+	<resultMap id = "User" type = "com.mycompany.careerguidence.dao.type.Users">
+    	<id 	property="id_user" 			column="id_user"/>
+    	<result property = "age_user" 		column = "age_user"/>
+    	<result property = "surname_user" 	column = "surname_user"/>
+    	<result property = "name_user" 		column = "name_user"/>
+    	<result property = "email_user" 	column = "email_user"/>
+    	<result property = "login_user" 	column = "login_user"/>
+    	<result property = "password_user"  column = "password_user"/>
+    	<result property = "name_role" 		column = "name_role"/>
+  	</resultMap>  	
+
+
+  	<select id="getUserById" parameterType = "java.lang.Long" resultMap="User">
+  		
+		SELECT 
+			 *
+		FROM 
+			roles,
+			users,
+		    usersHasRoles AS uhr
+		              
+		    LEFT JOIN users ut ON uhr.id_user = ut.id_user
+		    LEFT JOIN roles rt ON uhr.id_role = rt.id_roles
+		WHERE 
+			id_user = #{id_user};
+
+  	</select>
+
+  	<select id = "getAll" resultMap = "User">
+  		
+		SELECT 
+			*
+		FROM 
+			users;
+
+  	</select>
+
+  	<insert id = "insertUser" parameterType = "com.mycompany.careerguidence.dao.type.Users">
+  		
+		INSER INTO users(id_user,age_user,surname_user,name_user,email_user,login_user,password_user) 
+
+		VALUES
+			(id_user 		= #{id_user},
+			age_user 		= #{age_user},
+			surname_user 	= #{surname_user},
+			name_user 		= #{name_user},
+			email_user 		= #{email_user},
+			lodgin_user 	= #{login_user},
+			password_user 	= #{password_user});
+
+  	</insert>
+
+  	<update id = "updateUser" parameterType="com.mycompany.careerguidence.dao.type.Users">
+  		
+  		UPDATE users
+  		SET id_user 		= #{id_user},
+			age_user 		= #{age_user},
+			surname_user 	= #{surname_user},
+			name_user 		= #{name_user},
+			email_user 		= #{email_user},
+			lodgin_user 	= #{login_user},
+			password_user 	= #{password_user};
+
+  	</update>
+
+  	<delete id = "deleteUserById" parameterType = "java.lang.Long">
+  		
+		DELETE FROM     users
+		WHERE id_user 	= #{id_user};
+
+  	</delete>
+	
+
+</mapper>

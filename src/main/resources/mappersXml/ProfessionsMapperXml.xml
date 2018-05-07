@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace = "com.mycompany.careerguidence.mappers.ProfessionsMapper">
+
+	<resultMap id = "Profession" type = "com.mycompany.careerguidence.dao.type.Professions">
+    	<id 	property = "id_profession" 			column = "id_profession"/>
+    	<result property = "name_profession" 		column = "name_profession"/>
+    	<result property = "description_profession" column = "description_profession"/>
+  	</resultMap>
+
+
+  	<select id = "getProfessionById" parameterType = "java.lang.Long" resultMap="Profession">
+  		
+		SELECT
+			*
+		FROM
+			professions
+		WHERE 
+			id_profession = #{id_profession};
+		
+  	</select>
+
+  	<select id = "getAll" resultMap = "Profession">
+  		
+		SELECT 
+			*
+		FROM 
+			professions;
+
+  	</select>
+
+  	<insert id = "insertProfession" parameterType = "com.mycompany.careerguidence.dao.type.Professions">
+  		
+		INSER INTO professions(id_profession,name_profession,description_profession) 
+
+		VALUES
+			(id_profession 			= #{id_profession},
+			name_profession 		= #{name_profession},
+			description_profession 	= #{description_profession}
+			);
+
+  	</insert>
+
+  	<update id = "updateProfession" parameterType="com.mycompany.careerguidence.dao.type.Professions">
+  		
+  		UPDATE professions
+  		SET id_profession 			= #{id_profession},
+			name_profession 		= #{name_profession},
+			description_profession 	= #{description_profession};
+
+  	</update>
+
+  	<delete id = "deleteProfessionById" parameterType = "java.lang.Long">
+  		
+		DELETE FROM     professions
+		WHERE id_profession   = #{id_profession};
+
+  	</delete>
+	
+
+</mapper>

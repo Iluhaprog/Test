@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace = "com.mycompany.careerguidence.mappers.SpecializesMapper">
+
+	<resultMap id = "Specialize" type = "com.mycompany.careerguidence.dao.type.Specializes">
+    	<id 	property = "id_specialize" 	column = "id_specialize"/>
+    	<result property = "name_specialize" 	column = "name_specialize"/>
+  	</resultMap>
+
+
+  	<select id = "getSpecializeById" parameterType = "java.lang.Long" resultMap="Specialize">
+  		
+		SELECT
+			*
+		FROM
+			specializes
+		WHERE 
+			id_specialize = #{id_specialize};
+		
+  	</select>
+
+  	<select id = "getAll" resultMap = "Specialize">
+  		
+		SELECT 
+			*
+		FROM 
+			specializes;
+
+  	</select>
+
+  	<insert id = "insertSpecialize" parameterType = "com.mycompany.careerguidence.dao.type.Specializes">
+  		
+		INSER INTO specializes(id_specialize,name_specialize) 
+
+		VALUES
+			(id_specialize	= #{id_question},
+			name_specialize = #{name_question}
+			);
+
+  	</insert>
+
+  	<update id = "updateSpecialize" parameterType="com.mycompany.careerguidence.dao.type.Specializes">
+  		
+  		UPDATE specializes
+  		SET id_specialize	= #{id_question},
+			name_specialize = #{name_question};
+
+  	</update>
+
+  	<delete id = "deleteSpecializeById" parameterType = "java.lang.Long">
+  		
+		DELETE FROM     specializes
+		WHERE id_question   = #{id_question};
+
+  	</delete>
+	
+
+</mapper>
