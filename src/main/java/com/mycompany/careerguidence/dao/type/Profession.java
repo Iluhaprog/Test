@@ -1,7 +1,7 @@
 package com.mycompany.careerguidence.dao.type;
 
 
-public class Professions {
+public class Profession {
     
     //FIELDS OF PROFESSION
     private Long id_profession;

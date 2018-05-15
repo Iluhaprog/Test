@@ -1,20 +1,20 @@
 package com.mycompany.careerguidence.mappers;
 
-import com.mycompany.careerguidence.dao.type.Works;
+import com.mycompany.careerguidence.dao.type.Work;
 import java.util.List;
 
 
 public interface WorksMapper {
     
     //INSERT
-    public void insertWork(Works work);
+    public void insertWork(Work work);
     //SELECT BY ID
-    public Works getWorkById(Long id);
+    public Work getWorkById(Long id);
     //UPDATE
-    public void updateWork(Works work);
+    public void updateWork(Work work);
     //DELETE
     public void deleteWorkById(Long id);
     //SELECT ALL
-    public List<Works> getAll();
+    public List<Work> getAll();
     
 }

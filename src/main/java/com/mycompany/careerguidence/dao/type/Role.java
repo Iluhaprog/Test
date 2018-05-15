@@ -1,6 +1,6 @@
 package com.mycompany.careerguidence.dao.type;
 
-public class Roles {
+public class Role {
     
     //FIELDS  ROLE
     private Long id_role;

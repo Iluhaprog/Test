@@ -1,7 +1,7 @@
 package com.mycompany.careerguidence.dao.type;
 
 
-public class Users {
+public class User {
    
     //FIELDS OF USER
     private Long id_user;

@@ -1,10 +1,12 @@
 package com.mycompany.careerguidence.dao.type;
 
 
-public class Enterprices {
+public class Enterprice {
     
     //FIELDS OF ENTERPRICE
     private Long id_enterprice;
+    private String login_enterprice;
+    private String password_enterprice;
     private String name_enterprice;
     private String geolocation_enterprice;
     private String phone_enterprice;
@@ -17,6 +19,24 @@ public class Enterprices {
     public void setId_enterprice(Long id_enterprice) {
         this.id_enterprice = id_enterprice;
     }
+    
+    //LOGIN OF ENTERPRICE
+    public String getLogin_enterprice() {
+        return login_enterprice;
+    }
+
+    public void setLogin_enterprice(String login_enterprice) {
+        this.login_enterprice = login_enterprice;
+    }
+    //PASSWORD OF ENTERPRICE
+    public String getPassword_enterprice() {
+        return password_enterprice;
+    }
+
+    public void setPassword_enterprice(String password_enterprice) {
+        this.password_enterprice = password_enterprice;
+    }
+    
     //NAME OF ENTERPRISE
     public String getName_enterprice() {
         return name_enterprice;

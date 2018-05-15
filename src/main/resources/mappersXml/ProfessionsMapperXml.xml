@@ -4,7 +4,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace = "com.mycompany.careerguidence.mappers.ProfessionsMapper">
 
-	<resultMap id = "Profession" type = "com.mycompany.careerguidence.dao.type.Professions">
+	<resultMap id = "Profession" type = "com.mycompany.careerguidence.dao.type.Profession">
     	<id 	property = "id_profession" 			column = "id_profession"/>
     	<result property = "name_profession" 		column = "name_profession"/>
     	<result property = "description_profession" column = "description_profession"/>
@@ -31,7 +31,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
   	</select>
 
-  	<insert id = "insertProfession" parameterType = "com.mycompany.careerguidence.dao.type.Professions">
+  	<insert id = "insertProfession" parameterType = "com.mycompany.careerguidence.dao.type.Profession">
   		
 		INSER INTO professions(id_profession,name_profession,description_profession) 
 
@@ -43,7 +43,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
   	</insert>
 
-  	<update id = "updateProfession" parameterType="com.mycompany.careerguidence.dao.type.Professions">
+  	<update id = "updateProfession" parameterType="com.mycompany.careerguidence.dao.type.Profession">
   		
   		UPDATE professions
   		SET id_profession 			= #{id_profession},

@@ -1,19 +1,19 @@
 package com.mycompany.careerguidence.mappers;
 
-import com.mycompany.careerguidence.dao.type.Specializes;
+import com.mycompany.careerguidence.dao.type.Specialize;
 import java.util.List;
 
 public interface SpecializesMapper {
     
     //INSERT
-    public void insertSpecialize(Specializes specialize);
+    public void insertSpecialize(Specialize specialize);
     //SELECT BY ID
-    public Specializes getSpecializeById(Long id);
+    public Specialize getSpecialize(Long id_user,Long id_test);
     //UPDATE
-    public void updateSpecializeUser(Specializes specialize);
+    public void updateSpecializeUser(Specialize specialize);
     //DELETE
     public void deleteSpecializeById(Long id);
     //SELECT ALL
-    public List<Specializes> getAll();
+    public List<Specialize> getAll();
     
 }

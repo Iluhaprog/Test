@@ -1,7 +1,7 @@
 package com.mycompany.careerguidence.dao.type;
 
 
-public class Specializes {
+public class Specialize {
     
     //FIELDS OF SPECIALIZES
     private Long id_specialize;

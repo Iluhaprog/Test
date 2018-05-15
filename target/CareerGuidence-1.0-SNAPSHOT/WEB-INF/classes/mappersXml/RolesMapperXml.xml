@@ -4,7 +4,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace = "com.mycompany.careerguidence.mappers.RolesMapper">
 
-	<resultMap id = "Role" type = "com.mycompany.careerguidence.dao.type.Roles">
+	<resultMap id = "Role" type = "com.mycompany.careerguidence.dao.type.Role">
     	<id 	property="id_role" 			column="id_role"/>
     	<result property = "name_role" 		column = "name_role"/>
   	</resultMap>
@@ -30,7 +30,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
   	</select>
 
-  	<insert id = "insertRole" parameterType = "com.mycompany.careerguidence.dao.type.Roles">
+  	<insert id = "insertRole" parameterType = "com.mycompany.careerguidence.dao.type.Role">
   		
 		INSER INTO roles(id_roles,name_roles) 
 
@@ -40,7 +40,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
   	</insert>
 
-  	<update id = "updateRole" parameterType="com.mycompany.careerguidence.dao.type.Roles">
+  	<update id = "updateRole" parameterType="com.mycompany.careerguidence.dao.type.Role">
   		
   		UPDATE roles
   		SET id_role 		= #{id_role},

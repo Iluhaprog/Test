@@ -4,7 +4,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace = "com.mycompany.careerguidence.mappers.QuestionsMapper">
 
-	<resultMap id = "Question" type = "com.mycompany.careerguidence.dao.type.Questions">
+	<resultMap id = "Question" type = "com.mycompany.careerguidence.dao.type.Question">
     	<id 	property = "id_question" 	column = "id_question"/>
     	<result property = "name_question" 	column = "name_question"/>
     	<result property = "flag_question" 	column = "flag_question"/>
@@ -31,7 +31,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
   	</select>
 
-  	<insert id = "insertQuestion" parameterType = "com.mycompany.careerguidence.dao.type.Questions">
+  	<insert id = "insertQuestion" parameterType = "com.mycompany.careerguidence.dao.type.Question">
   		
 		INSER INTO questions(id_question,name_question,flag_question) 
 
@@ -43,7 +43,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
   	</insert>
 
-  	<update id = "updateQuestion" parameterType="com.mycompany.careerguidence.dao.type.Questions">
+  	<update id = "updateQuestion" parameterType="com.mycompany.careerguidence.dao.type.Question">
   		
   		UPDATE questions
   		SET id_question		= #{id_question},

@@ -1,7 +1,7 @@
 package com.mycompany.careerguidence.dao.type;
 
 
-public class Tests {
+public class Test {
     
     //FIELDS OF TEST
     private Long id_test;

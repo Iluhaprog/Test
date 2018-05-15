@@ -1,7 +1,7 @@
 package com.mycompany.careerguidence.dao.type;
 
 
-public class Works {
+public class Work {
     
     //FIELDS OF WORK
     private Long id_work;

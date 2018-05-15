@@ -1,19 +1,19 @@
 package com.mycompany.careerguidence.mappers;
 
-import com.mycompany.careerguidence.dao.type.Questions;
+import com.mycompany.careerguidence.dao.type.Question;
 import java.util.List;
 
 public interface QuestionsMapper {
     
     //INSERT
-    public void insertQuestion(Questions question);
+    public void insertQuestion(Question question);
     //GET BY ID
-    public Questions getQuestionById(Long id);
+    public Question getQuestionById(Long id);
     //UPDATE
-    public void updateQuestion(Questions question);
+    public void updateQuestion(Question question);
     //DELETE BY ID
     public void deleteQuestionnByid(Long id);
     //GET ALL
-    public List<Questions> getAll();
+    public List<Question> getAll();
     
 }

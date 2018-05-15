@@ -1,20 +1,24 @@
 package com.mycompany.careerguidence.mappers;
 
-import com.mycompany.careerguidence.dao.type.Users;
+import com.mycompany.careerguidence.dao.type.User;
 import java.util.List;
 
 
 public interface UsersMapper {
     
     //INSERT
-    public void insertUser(Users user);
-    //SELECT BY ID
-    public Users getUserById(Long id);
+    public void insertUser(User user);
+    //SELECT BY LOGIN + PASSWORD FOR CLIENT
+    public User getUser( String login , String password );
+    //GET USER BY UD FOR ADMIN
+    public User getUserForAdmin(Long id);
     //UPDATE
-    public void updateUser(Users user);
+    public void updateUser(User user);
     //DELETE
     public void deleteUserById(Long id);
+    //DELETE ALL USERS
+    public void deleteAllUsers();
     //SELECT ALL
-    public List<Users> getAll();
+    public List<User> getAll();
     
 }

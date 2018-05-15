@@ -4,8 +4,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace = "com.mycompany.careerguidence.mappers.EnterpriceMapper">
 
-	<resultMap id = "Enterprice" type = "com.mycompany.careerguidence.dao.type.Enterprices">
+	<resultMap id = "Enterprice" type = "com.mycompany.careerguidence.dao.type.Enterprice">
     	<id 	property = "id_enterprice" 			column="id_enterprice"/>
+    	<result property = "login_enterprice" 		column = "login_enterprice"/>
+    	<result property = "password_enterprice" 	column = "password_enterprice"/>
     	<result property = "name_enterprice" 		column = "name_enterprice"/>
     	<result property = "geolocation_enterprice" column = "geolocation_enterprice"/>
     	<result property = "phone_enterprice"       column = "phone_enterprice"/>
@@ -14,6 +16,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   	<resultMap id = "Enterprice_has_work" type = "com.mycompany.careerguidence.dao.type.Enterprice_has_work">
   		<!--ENTERPRICE-->
   		<id 	property = "id_enterprice" 			column="id_enterprice"/>
+  		<result property = "login_enterprice" 		column = "login_enterprice"/>
+    	<result property = "password_enterprice" 	column = "password_enterprice"/>
     	<result property = "name_enterprice" 		column = "name_enterprice"/>
     	<result property = "geolocation_enterprice" column = "geolocation_enterprice"/>
     	<result property = "phone_enterprice"       column = "phone_enterprice"/>
@@ -23,7 +27,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   	</resultMap>
 
 
-  	<select id = "getEnterpriceById" parameterType = "java.lang.Long" resultMap="Enterprice">
+  	<select id = "getEnterpriceAdmin" parameterType = "java.lang.Long" resultMap="Enterprice">
   		
 		SELECT
 			*
@@ -31,6 +35,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			enterprises 
 		WHERE 
 			id_enterprise = #{id_enterprise};
+		
+  	</select>
+  	<select id = "getEnterpriceClient" parameterType = "java.lang.Long" resultMap="Enterprice">
+  		
+		SELECT
+			*
+		FROM
+			enterprises 
+		WHERE 
+			login_enterprice = #{login_enterprice},
+			password_enterprice = #{password_enterprice};
 		
   	</select>
 
@@ -59,7 +74,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
   	</select>
 
-  	<insert id = "insertEnterprice" parameterType = "com.mycompany.careerguidence.dao.type.Enterprices">
+  	<insert id = "insertEnterprice" parameterType = "com.mycompany.careerguidence.dao.type.Enterprice">
   		
 		INSER INTO enterprices(id_enterprice,name_enterprices,geolocation_enterprice,phone_enterprice) 
 
@@ -72,7 +87,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
   	</insert>
 
-  	<update id = "updateEnterprice" parameterType="com.mycompany.careerguidence.dao.type.Enterprices">
+  	<update id = "updateEnterprice" parameterType="com.mycompany.careerguidence.dao.type.Enterprice">
   		
   		UPDATE enterprices
   		SET id_enterprice 			= #{id_enterprice},

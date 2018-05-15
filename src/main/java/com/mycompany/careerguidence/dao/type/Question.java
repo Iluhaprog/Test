@@ -1,7 +1,7 @@
 package com.mycompany.careerguidence.dao.type;
 
 
-public class Questions {
+public class Question {
     
     private Long id_question;
     private String name_question;

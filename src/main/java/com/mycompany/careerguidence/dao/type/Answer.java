@@ -1,11 +1,11 @@
 package com.mycompany.careerguidence.dao.type;
 
 
-public class Answers {
+public class Answer {
     
     //FIELD OF ANSWER
     private Long id_questions;
-    private Long id_specializes;
+    private Long id_specializes;// test
     private boolean flag_answer;
     
     //ID_QUESTION OF ANSWER

@@ -1,19 +1,19 @@
 package com.mycompany.careerguidence.mappers;
 
-import com.mycompany.careerguidence.dao.type.Professions;
+import com.mycompany.careerguidence.dao.type.Profession;
 import java.util.List;
 
 public interface ProfessionsMapper {
     
     //INSERT
-    public void insertProfession(Professions profession);
+    public void insertProfession(Profession profession);
     //GET BY ID
-    public Professions getProfessionById(Long id);
+    public Profession getProfessionById(Long id);
     //UPDATE
-    public void updateProfession(Professions profession);
+    public void updateProfession(Profession profession);
     //DELETE BY ID
     public void deleteProfessionByid(Long id);
     //GET ALL
-    public List<Professions> getAll();
+    public List<Profession> getAll();
     
 }

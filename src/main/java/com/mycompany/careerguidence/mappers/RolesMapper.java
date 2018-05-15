@@ -1,19 +1,19 @@
 package com.mycompany.careerguidence.mappers;
 
-import com.mycompany.careerguidence.dao.type.Roles;
+import com.mycompany.careerguidence.dao.type.Role;
 import java.util.List;
 
 public interface RolesMapper {
     
     //INSERT
-    public void insertRole(Roles role);
+    public void insertRole(Role role);
     //SELECT BY ID
-    public Roles getRoleById(Long id);
+    public Role getRoleById(Long id);
     //UPDATE
-    public void updateRoleUser(Roles role);
+    public void updateRoleUser(Role role);
     //DELETE
     public void deleteRoleById(Long id);
     //SELECT ALL
-    public List<Roles> getAll();
+    public List<Role> getAll();
     
 }

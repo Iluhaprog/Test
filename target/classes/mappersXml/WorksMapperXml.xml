@@ -31,7 +31,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
   	</select>
 
-  	<insert id = "insertWork" parameterType = "com.mycompany.careerguidence.dao.type.Works">
+  	<insert id = "insertWork" parameterType = "com.mycompany.careerguidence.dao.type.Work">
   		
 		INSER INTO works(id_work,name_work,position_work) 
 
@@ -43,7 +43,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
   	</insert>
 
-  	<update id = "updateWork" parameterType="com.mycompany.careerguidence.dao.type.Works">
+  	<update id = "updateWork" parameterType="com.mycompany.careerguidence.dao.type.Work">
   		
   		UPDATE works
   		SET id_work			= #{id_work},

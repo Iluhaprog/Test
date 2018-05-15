@@ -5,7 +5,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace = "com.mycompany.careerguidence.mappers.UsersMapper">
 
 	<!--USER WITH ROLE-->
-	<resultMap id = "User" type = "com.mycompany.careerguidence.dao.type.Users">
+	<resultMap id = "User" type = "com.mycompany.careerguidence.dao.type.User">
     	<id 	property="id_user" 			column="id_user"/>
     	<result property = "age_user" 		column = "age_user"/>
     	<result property = "surname_user" 	column = "surname_user"/>
@@ -17,7 +17,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   	</resultMap>  	
 
 
-  	<select id="getUserById" parameterType = "java.lang.Long" resultMap="User">
+  	<select id="getUser" parameterType = "java.lang.String" resultMap="User">
   		
 		SELECT 
 			 *
@@ -29,8 +29,23 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		    LEFT JOIN users ut ON uhr.id_user = ut.id_user
 		    LEFT JOIN roles rt ON uhr.id_role = rt.id_roles
 		WHERE 
-			id_user = #{id_user};
+			login_user = #{login_user},
+			password_user = #{password_user};
 
+  	</select>
+
+  	<select id = "getUserForAdmin" parameterType = "java.lang.Long"  resultMap = "User">
+		SELECT 
+			 *
+		FROM 
+			roles,
+			users,
+		    usersHasRoles AS uhr
+		              
+		    LEFT JOIN users ut ON uhr.id_user = ut.id_user
+		    LEFT JOIN roles rt ON uhr.id_role = rt.id_roles
+		WHERE 
+			id_user = #{id_user};
   	</select>
 
   	<select id = "getAll" resultMap = "User">
@@ -42,7 +57,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
   	</select>
 
-  	<insert id = "insertUser" parameterType = "com.mycompany.careerguidence.dao.type.Users">
+  	<insert id = "insertUser" parameterType = "com.mycompany.careerguidence.dao.type.User">
   		
 		INSER INTO users(id_user,age_user,surname_user,name_user,email_user,login_user,password_user) 
 
@@ -57,7 +72,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
   	</insert>
 
-  	<update id = "updateUser" parameterType="com.mycompany.careerguidence.dao.type.Users">
+  	<update id = "updateUser" parameterType="com.mycompany.careerguidence.dao.type.User">
   		
   		UPDATE users
   		SET id_user 		= #{id_user},

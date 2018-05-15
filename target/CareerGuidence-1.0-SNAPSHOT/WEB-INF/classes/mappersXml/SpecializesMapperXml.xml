@@ -4,7 +4,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace = "com.mycompany.careerguidence.mappers.SpecializesMapper">
 
-	<resultMap id = "Specialize" type = "com.mycompany.careerguidence.dao.type.Specializes">
+	<resultMap id = "Specialize" type = "com.mycompany.careerguidence.dao.type.Specialize">
     	<id 	property = "id_specialize" 	column = "id_specialize"/>
     	<result property = "name_specialize" 	column = "name_specialize"/>
   	</resultMap>
@@ -30,7 +30,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
   	</select>
 
-  	<insert id = "insertSpecialize" parameterType = "com.mycompany.careerguidence.dao.type.Specializes">
+  	<insert id = "insertSpecialize" parameterType = "com.mycompany.careerguidence.dao.type.Specialize">
   		
 		INSER INTO specializes(id_specialize,name_specialize) 
 
@@ -41,7 +41,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
   	</insert>
 
-  	<update id = "updateSpecialize" parameterType="com.mycompany.careerguidence.dao.type.Specializes">
+  	<update id = "updateSpecialize" parameterType="com.mycompany.careerguidence.dao.type.Specialize">
   		
   		UPDATE specializes
   		SET id_specialize	= #{id_question},
