@@ -12,8 +12,10 @@ public interface QuestionsMapper {
     //UPDATE
     public void updateQuestion(Question question);
     //DELETE BY ID
-    public void deleteQuestionnByid(Long id);
+    public void deleteQuestionById(Long id);
     //GET ALL
     public List<Question> getAll();
+    //GET QUESTION BY NAME
+    public Question getQuestionByName(String name);
     
 }

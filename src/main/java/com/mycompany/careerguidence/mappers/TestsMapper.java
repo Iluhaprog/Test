@@ -20,5 +20,7 @@ public interface TestsMapper {
     public Test_has_Question getTestWithQuestionById(Long id);
     //DELETE ALL TESTS
     public void deleteAllTest();
+    //GET TEST BY NAME
+    public Test getTestByName(String name);
     
 }

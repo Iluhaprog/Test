@@ -20,6 +20,8 @@ public interface EnterpricesMapper {
     public List<Enterprice> getAll();
     //GET ENTERPRICE WITH WORK
     public Enterprice_has_work getEnterpriseWithWorkById(Long id);
+    //GET ENTERPRICE BY NAME
+    public Enterprice getEnterpriceByName(String name);
     
     
 }

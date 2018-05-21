@@ -1,13 +1,15 @@
 package com.mycompany.careerguidence.services.servicesImpl;
 
 import com.mycompany.careerguidence.dao.type.Enterprice;
+import com.mycompany.careerguidence.dao.type.Profession;
 import com.mycompany.careerguidence.dao.type.Question;
-import com.mycompany.careerguidence.dao.type.Specialize;
+import com.mycompany.careerguidence.dao.type.Test;
 import com.mycompany.careerguidence.dao.type.Test_has_Question;
 import com.mycompany.careerguidence.dao.type.User;
+import com.mycompany.careerguidence.dao.type.UserAnswer;
 import com.mycompany.careerguidence.mappers.EnterpricesMapper;
+import com.mycompany.careerguidence.mappers.ProfessionsMapper;
 import com.mycompany.careerguidence.mappers.QuestionsMapper;
-import com.mycompany.careerguidence.mappers.SpecializesMapper;
 import com.mycompany.careerguidence.mappers.TestsMapper;
 import com.mycompany.careerguidence.mappers.UsersMapper;
 import com.mycompany.careerguidence.services.servicesInterfaces.ClientService;
@@ -22,7 +24,7 @@ public class ClientServiceImpl implements ClientService {
     EnterpricesMapper em;
     QuestionsMapper qm;
     TestsMapper tm;
-    SpecializesMapper sm;
+    ProfessionsMapper pm;
     
     //
     //              U S E R    A N D    E N T E R P R I C E
@@ -38,6 +40,16 @@ public class ClientServiceImpl implements ClientService {
             return null;
         }
     }
+    //GET BY NAME
+    public User getUserByName(String name){
+        try{
+            return um.getUserByName(name);
+        }
+        catch(Exception ex){
+            System.out.println("error:" + ex);
+            return um.getUserByName(name);
+        }
+    }
 
     @Override
     public Enterprice loginEnterprice(String login, String password) {
@@ -47,6 +59,16 @@ public class ClientServiceImpl implements ClientService {
         catch(Exception ex){
             System.out.println(ex);
             return null;
+        }
+    }
+    //GET BY NAME
+    public Enterprice getEnterpriceByName( String name ){
+        try{
+            return em.getEnterpriceByName(name);
+        }
+        catch(Exception ex){
+            System.out.println("error: " + ex);
+            return em.getEnterpriceByName(name);
         }
     }
     //                    R E G I S T R A T I O N 
@@ -111,9 +133,19 @@ public class ClientServiceImpl implements ClientService {
             return null;
         }
     }
+    //GET BY NAME
+    public Question getQuestionByName(String name){
+        try{
+            return qm.getQuestionByName(name);
+        }
+        catch(Exception ex){
+            System.out.println("error: " + ex);
+            return qm.getQuestionByName(name);
+        }
+    }
     //                        S E N D   A   T E S T
     @Override
-    public void postTest(Test_has_Question test) {
+    public void postTest(List<UserAnswer> user_answers) {
         try{
            
         }
@@ -121,16 +153,34 @@ public class ClientServiceImpl implements ClientService {
             System.out.println(ex);
         }
     }
+    public Test getTestByName(String name){
+        try{
+            return tm.getTestByName(name);
+        }
+        catch (Exception ex) {
+            System.out.println("error : " + ex);
+            return tm.getTestByName(name);
+        }
+    }
     //                         G E T    R E S U L T
     @Override
-    public Specialize getResult(Long id_user, Long id_test) {
+    public Profession getResult(Long id_user, Long id_test) {
        try{
-            return sm.getSpecialize(id_user,id_test);
+            return pm.getProfession(id_user,id_test);
         }
         catch(Exception ex){
             System.out.println(ex);
-            return null;
+            return pm.getProfession(id_user,id_test);
         }      
+    }
+    public  Profession getResultByName(String name){
+        try{
+            return pm.getProfessionByName(name);
+        }
+        catch(Exception ex){
+            System.out.println("error: " + ex);
+            return  pm.getProfessionByName(name);
+        }
     }
     
 }

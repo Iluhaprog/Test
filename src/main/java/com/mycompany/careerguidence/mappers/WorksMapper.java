@@ -16,5 +16,7 @@ public interface WorksMapper {
     public void deleteWorkById(Long id);
     //SELECT ALL
     public List<Work> getAll();
+    //GET BY NAME
+    public Work getWorkByName(String name);
     
 }

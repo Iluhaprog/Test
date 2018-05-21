@@ -9,6 +9,10 @@ public interface ProfessionsMapper {
     public void insertProfession(Profession profession);
     //GET BY ID
     public Profession getProfessionById(Long id);
+    //
+    public Profession getProfession(Long id_user , Long id_test);
+    //GET BY NAME
+    public Profession getProfessionByName(String name);
     //UPDATE
     public void updateProfession(Profession profession);
     //DELETE BY ID

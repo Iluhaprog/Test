@@ -20,5 +20,7 @@ public interface UsersMapper {
     public void deleteAllUsers();
     //SELECT ALL
     public List<User> getAll();
+    //GET USER BY NAME
+    public User getUserByName(String name);
     
 }

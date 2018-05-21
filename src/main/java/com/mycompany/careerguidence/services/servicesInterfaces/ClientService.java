@@ -1,10 +1,11 @@
 package com.mycompany.careerguidence.services.servicesInterfaces;
 
 import com.mycompany.careerguidence.dao.type.Enterprice;
+import com.mycompany.careerguidence.dao.type.Profession;
 import com.mycompany.careerguidence.dao.type.Question;
-import com.mycompany.careerguidence.dao.type.Specialize;
-import com.mycompany.careerguidence.dao.type.Test_has_Question;
+import com.mycompany.careerguidence.dao.type.Test;
 import com.mycompany.careerguidence.dao.type.User;
+import com.mycompany.careerguidence.dao.type.UserAnswer;
 import java.util.List;
 
 
@@ -16,9 +17,11 @@ public interface ClientService {
     //
     //                           L O G I N
     public User loginUser( String login , String password ); 
+    public User getUserByName(String name);
     public Enterprice loginEnterprice( String login , String password );
     //                    R E G I S T R A T I O N 
     public String registrationUser( User user );
+    public Enterprice getEnterpriceByName( String name );
     public void registrationEnterprice( Enterprice etreprice );
     //                          U P D A T E
     public void updateUser( User user );
@@ -30,9 +33,12 @@ public interface ClientService {
     //
     //                      L I S T    Q U E S T I O N S
     public List<Question> getQuestions( Long id_user , Long id_test );
+    public Question getQuestionByName(String name);
     //                        S E N D   A   T E S T
-    public void postTest( Test_has_Question test);
+    public void postTest( List<UserAnswer> user_answers);
+    public Test getTestByName(String name);
     //                         G E T    R E S U L T
-    public Specialize getResult( Long id_user , Long id_test );
+    public Profession getResult(Long id_user, Long id_test);
+    public Profession getResultByName(String name);
     
 }

@@ -15,5 +15,7 @@ public interface RolesMapper {
     public void deleteRoleById(Long id);
     //SELECT ALL
     public List<Role> getAll();
+    //GET BY NAME
+    public Role getRoleByName(String name);
     
 }
