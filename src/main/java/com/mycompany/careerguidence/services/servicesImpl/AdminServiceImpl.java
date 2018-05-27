@@ -54,8 +54,7 @@ public class AdminServiceImpl implements AdminService{
             return tm.getAll();
         }
         catch(Exception ex){
-            System.out.println(ex);
-            return null;
+           throw ex;
         }
     }
      //  G E T    S I N G L E    T E S T 
@@ -66,8 +65,7 @@ public class AdminServiceImpl implements AdminService{
             return tm.getTestById(id);
         }
         catch(Exception ex){
-            System.out.println(ex);
-            return null;
+           throw ex;
         }
     }
     
@@ -80,8 +78,7 @@ public class AdminServiceImpl implements AdminService{
             return um.getAll();
         }
         catch(Exception ex){
-            System.out.println(ex);
-            return null;
+            throw ex;
         }
          
      }
@@ -92,7 +89,7 @@ public class AdminServiceImpl implements AdminService{
              um.updateUser(user);
          }
          catch(Exception ex){
-             System.out.println("error : " + ex);
+            throw ex;
          }
      }
      
@@ -106,10 +103,10 @@ public class AdminServiceImpl implements AdminService{
         try{ 
             return pm.getProfession(id,id); 
         } 
-        catch(Exception exception){ 
-            System.out.println("error : " + exception); 
+        catch(Exception ex){ 
+            throw ex;
         } 
-            return pm.getProfession(id,id); 
+            
     }
     //G E T   E N T E R P R I C E   B Y   I D 
     @Override
@@ -117,10 +114,9 @@ public class AdminServiceImpl implements AdminService{
         try{ 
             return em.getEnterpriceAdmin(id); 
         } 
-        catch(Exception exception){ 
-            System.out.println("error : " + exception); 
+        catch(Exception ex){ 
+            throw ex;
         } 
-        return em.getEnterpriceAdmin(id); 
     }
     //G E T    U S E R    B Y    I D
     @Override
@@ -128,10 +124,9 @@ public class AdminServiceImpl implements AdminService{
         try{ 
             return um.getUserForAdmin(id); 
         } 
-        catch(Exception exception){ 
-            System.out.println("error : " + exception); 
+        catch(Exception ex){ 
+            throw ex;
         } 
-        return um.getUserForAdmin(id);  
     }
     //D E L E T E    U S E R    B Y   I D
     @Override
@@ -139,20 +134,19 @@ public class AdminServiceImpl implements AdminService{
         try{ 
             um.deleteUserById(id); 
         } 
-        catch(Exception exception){ 
-            System.out.println("error : " + exception); 
+        catch(Exception ex){ 
+            throw ex;
         } 
     }
     //G E T    A L L   S P E C I A L I Z E S
     @Override
     public List<Profession> getAllProfession() {
         try{ 
-            pm.getAll();
+           return pm.getAll();
         } 
-        catch(Exception exception){ 
-            System.out.println("error : " + exception); 
+        catch(Exception ex){ 
+           throw ex;
         } 
-        return pm.getAll();
     }
     //G E T    A L L   E N T E R P R I C E S
     @Override
@@ -160,10 +154,9 @@ public class AdminServiceImpl implements AdminService{
         try{ 
             return em.getAll();
         } 
-        catch(Exception exception){ 
-            System.out.println("error : " + exception); 
+        catch(Exception ex){ 
+            throw ex;
         } 
-        return em.getAll();
     }
     //D E L E T E    A L L    T E S T S
     @Override
@@ -171,8 +164,8 @@ public class AdminServiceImpl implements AdminService{
         try{ 
             tm.deleteAllTest(); 
         } 
-        catch(Exception exception){ 
-            System.out.println("error : " + exception); 
+        catch(Exception ex){ 
+           throw ex;
         } 
     }
     //D E L E T E    A L L    U S E R S
@@ -181,8 +174,8 @@ public class AdminServiceImpl implements AdminService{
         try{ 
             um.deleteAllUsers();
         } 
-        catch(Exception exception){ 
-            System.out.println("error : " + exception); 
+        catch(Exception ex){ 
+            throw ex;
         } 
     }
     //          !!!        END SERVICE BY EGOR          !!!
@@ -196,8 +189,8 @@ public class AdminServiceImpl implements AdminService{
         try{ 
             entrpsrvce.updateEnterprice(enterprices);
         } 
-            catch(Exception exception){ 
-            System.out.println("error : " + exception);  
+            catch(Exception ex){ 
+            throw ex; 
         }
 
     }
@@ -207,8 +200,8 @@ public class AdminServiceImpl implements AdminService{
         try{ 
             entrpsrvce.deleteEnterpriceByid(id);
         } 
-        catch(Exception exception){ 
-            System.out.println("error : " + exception); 
+        catch(Exception ex){ 
+            throw ex;
         } 
     }
 
@@ -219,7 +212,7 @@ public class AdminServiceImpl implements AdminService{
             entrpsrvce.insertEnterprice(enterprices);
         }
         catch(Exception ex){
-            System.out.println("error : " + ex);
+            throw ex;
         }
     }
 
@@ -229,7 +222,7 @@ public class AdminServiceImpl implements AdminService{
         entrpsrvce.getEnterpriceAdmin(id);
         }
         catch(Exception ex){
-            System.out.println("error : " + ex);
+           throw ex;
         }
     }
     //(2)
@@ -239,7 +232,7 @@ public class AdminServiceImpl implements AdminService{
             wrksrvce.getWorkById(id);
         }
         catch(Exception ex){
-            System.out.println("error : " + ex);
+            throw ex;
         }
     }
 
@@ -248,8 +241,8 @@ public class AdminServiceImpl implements AdminService{
          try{ 
             wrksrvce.updateWork(works); 
         } 
-        catch(Exception exception){ 
-            System.out.println("error : " + exception);  
+        catch(Exception ex){ 
+            throw ex;
         }     
     }
     
@@ -259,8 +252,7 @@ public class AdminServiceImpl implements AdminService{
             return wrksrvce.getAll(); 
         }
         catch(Exception ex){
-            System.out.println("error : " + ex);
-            return wrksrvce.getAll();
+            throw ex;
         }
     }
 
@@ -269,8 +261,8 @@ public class AdminServiceImpl implements AdminService{
         try{ 
             wrksrvce.deleteWorkById(id);
         } 
-        catch(Exception exception){ 
-            System.out.println("error : " + exception); 
+        catch(Exception ex){ 
+            throw ex; 
         } 
     }
 
@@ -280,7 +272,7 @@ public class AdminServiceImpl implements AdminService{
             wrksrvce.insertWork(works);
         }
         catch(Exception ex){
-            System.out.println("error : " + ex);
+            throw ex;
         }
     }
     
@@ -295,11 +287,9 @@ public class AdminServiceImpl implements AdminService{
             return tm.getTestById(id); 
         } 
         catch(Exception ex){ 
-            System.out.println(ex); 
+            throw ex; 
         } 
-        return null; 
-    } 
-
+    }
 
     @Override 
     public void insertTest(Test test) { 
@@ -307,7 +297,7 @@ public class AdminServiceImpl implements AdminService{
             tm.insertTest(test); 
         } 
         catch(Exception ex){ 
-            System.out.println(ex); 
+            throw ex;
         }  
     } 
 
@@ -317,7 +307,7 @@ public class AdminServiceImpl implements AdminService{
             tm.updateTestUser(test); 
         } 
         catch(Exception ex){ 
-            System.out.println(ex); 
+            throw ex;
         } 
     } 
 
@@ -326,8 +316,8 @@ public class AdminServiceImpl implements AdminService{
         try{ 
             tm.deleteTestById(id); 
         } 
-            catch(Exception ex){ 
-            System.out.println(ex); 
+        catch(Exception ex){ 
+            throw ex;
         } 
     } 
 
@@ -339,7 +329,7 @@ public class AdminServiceImpl implements AdminService{
             qm.insertQuestion(question);
         } 
         catch(Exception ex){ 
-            System.out.println(ex); 
+            throw ex;
         } 
     } 
     @Override 
@@ -348,9 +338,8 @@ public class AdminServiceImpl implements AdminService{
             return qm.getQuestionById(id); 
         } 
         catch(Exception ex){ 
-            System.out.println(ex); 
+            throw ex; 
         } 
-        return null; 
     } 
     @Override 
     public void updateQuestion(Question question) { 
@@ -358,7 +347,7 @@ public class AdminServiceImpl implements AdminService{
             qm.insertQuestion(question); 
         } 
         catch(Exception ex){ 
-            System.out.println(ex); 
+            throw ex; 
         } 
     } 
     @Override 
@@ -366,8 +355,8 @@ public class AdminServiceImpl implements AdminService{
         try{ 
             qm.deleteQuestionById(id); 
         } 
-            catch(Exception ex){ 
-            System.out.println(ex); 
+        catch(Exception ex){ 
+            throw ex;
         } 
     } 
     @Override 
@@ -376,8 +365,7 @@ public class AdminServiceImpl implements AdminService{
             return qm.getAll(); 
         } 
          catch(Exception ex){ 
-             System.out.println(ex); 
-             return qm.getAll();
+             throw ex;
         } 
     } 
     
@@ -392,8 +380,7 @@ public class AdminServiceImpl implements AdminService{
             return am.getAnswerById(id);
         }
         catch(Exception ex){
-            System.out.println("error : " + ex);
-            return am.getAnswerById(id);
+            throw ex;
         }
     } 
 
@@ -403,7 +390,7 @@ public class AdminServiceImpl implements AdminService{
             am.insertAnswer(answer);
         }
         catch(Exception ex){
-            System.out.println("error : " + ex);
+            throw ex;
             
         }
     } 
@@ -414,8 +401,7 @@ public class AdminServiceImpl implements AdminService{
             am.updateAnswer(answer);
         }
         catch(Exception ex){
-            System.out.println("error : " + ex);
-            
+            throw ex;
         }
     } 
 
@@ -425,8 +411,7 @@ public class AdminServiceImpl implements AdminService{
             am.deleteAnswerByid(id);
         }
         catch(Exception ex){
-            System.out.println("error : " + ex);
-            
+            throw ex;
         }
     } 
     @Override
@@ -435,8 +420,7 @@ public class AdminServiceImpl implements AdminService{
             return am.getAll();
         }
         catch(Exception ex){
-            System.out.println("error : " + ex);
-            return am.getAll();
+            throw ex;
         }    
     }
 
@@ -450,8 +434,7 @@ public class AdminServiceImpl implements AdminService{
             return um.getUserByName(name);
         }
         catch(Exception ex){
-            System.out.println("error:" + ex);
-            return um.getUserByName(name);
+            throw ex;
         }
     }
 
@@ -461,8 +444,7 @@ public class AdminServiceImpl implements AdminService{
             return em.getEnterpriceByName(name);
         }
         catch(Exception ex){
-            System.out.println("error: " + ex);
-            return em.getEnterpriceByName(name);
+            throw ex;
         }
     }
 
@@ -472,8 +454,7 @@ public class AdminServiceImpl implements AdminService{
             return qm.getQuestionByName(name);
         }
         catch(Exception ex){
-            System.out.println("error: " + ex);
-            return qm.getQuestionByName(name);
+            throw ex;
         }
     }
 
@@ -483,8 +464,7 @@ public class AdminServiceImpl implements AdminService{
             return tm.getTestByName(name);
         }
         catch (Exception ex) {
-            System.out.println("error : " + ex);
-            return tm.getTestByName(name);
+            throw ex;
         }
     }
 
@@ -494,8 +474,7 @@ public class AdminServiceImpl implements AdminService{
             return pm.getProfessionByName(name);
         }
         catch(Exception ex){
-            System.out.println("error: " + ex);
-            return pm.getProfessionByName(name);
+            throw ex;
         }
     }
     @Override
@@ -504,8 +483,7 @@ public class AdminServiceImpl implements AdminService{
             return rm.getRoleByName(name);
         }
         catch(Exception ex){
-            System.out.println("error : " + ex);
-            return rm.getRoleByName(name);
+            throw ex;
         }
     }
     @Override
@@ -514,8 +492,7 @@ public class AdminServiceImpl implements AdminService{
             return wrksrvce.getWorkByName(name);
         }
         catch(Exception ex){
-            System.out.println("error : " + ex);
-            return wrksrvce.getWorkByName(name);
+            throw ex;
         }  
     }
     @Override
@@ -524,9 +501,8 @@ public class AdminServiceImpl implements AdminService{
             return pm.getProfessionByName(name);
         }
         catch(Exception ex){
-            System.out.println("error : " + ex);
-            return pm.getProfessionByName(name);
+            throw ex;
         }
     }
-    
+
 }

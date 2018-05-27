@@ -42,8 +42,7 @@ public class ClientServiceImpl implements ClientService {
             return um.getUser( login , password );
         }
         catch(Exception ex){
-            System.out.println(ex);
-            return null;
+            throw ex;
         }
     }
     //GET BY NAME
@@ -52,8 +51,7 @@ public class ClientServiceImpl implements ClientService {
             return um.getUserByName(name);
         }
         catch(Exception ex){
-            System.out.println("error:" + ex);
-            return um.getUserByName(name);
+            throw ex;
         }
     }
 
@@ -63,8 +61,7 @@ public class ClientServiceImpl implements ClientService {
             return em.getEnterpriceClient(login , password);
         }
         catch(Exception ex){
-            System.out.println(ex);
-            return null;
+            throw ex;
         }
     }
     //GET BY NAME
@@ -73,8 +70,7 @@ public class ClientServiceImpl implements ClientService {
             return em.getEnterpriceByName(name);
         }
         catch(Exception ex){
-            System.out.println("error: " + ex);
-            return em.getEnterpriceByName(name);
+            throw ex;
         }
     }
     //                    R E G I S T R A T I O N 
@@ -90,8 +86,7 @@ public class ClientServiceImpl implements ClientService {
             }
         }
         catch(Exception ex){
-            System.out.println(ex);
-            return ex.toString();
+            throw ex;
         }
     }
 
@@ -101,7 +96,7 @@ public class ClientServiceImpl implements ClientService {
            em.insertEnterprice(etreprice);
         }
         catch(Exception ex){
-            System.out.println(ex);
+            throw ex;
         }
     }
     //                          U P D A T E
@@ -111,7 +106,7 @@ public class ClientServiceImpl implements ClientService {
             um.updateUser(user);
         }
         catch(Exception ex){
-            System.out.println(ex);
+            throw ex;
         }
     }
 
@@ -121,7 +116,7 @@ public class ClientServiceImpl implements ClientService {
            em.updateEnterprice(etreprice);
         }
         catch(Exception ex){
-            System.out.println(ex);
+            throw ex;
         }
     }
     
@@ -135,8 +130,7 @@ public class ClientServiceImpl implements ClientService {
             return qm.getAll();
         }
         catch(Exception ex){
-            System.out.println(ex);
-            return null;
+            throw ex;
         }
     }
     //GET BY NAME
@@ -145,8 +139,7 @@ public class ClientServiceImpl implements ClientService {
             return qm.getQuestionByName(name);
         }
         catch(Exception ex){
-            System.out.println("error: " + ex);
-            return qm.getQuestionByName(name);
+            throw ex;
         }
     }
     //                        S E N D   A   T E S T
@@ -156,7 +149,7 @@ public class ClientServiceImpl implements ClientService {
           am.insertUserAnswers(user_answers);
         }
         catch(Exception ex){
-            System.out.println(ex);
+            throw ex;
         }
     }
     public Test getTestByName(String name){
@@ -164,8 +157,7 @@ public class ClientServiceImpl implements ClientService {
             return tm.getTestByName(name);
         }
         catch (Exception ex) {
-            System.out.println("error : " + ex);
-            return tm.getTestByName(name);
+            throw ex;
         }
     }
     //                         G E T    R E S U L T
@@ -176,9 +168,7 @@ public class ClientServiceImpl implements ClientService {
             return pf.getName_profession();
         }
         catch(Exception ex){
-            System.out.println(ex);
-            Profession pf = pm.getProfession(id_user, id_test);
-            return pf.getName_profession();
+           throw ex;
         }      
     }
     public  Profession getResultByName(String name){
@@ -186,8 +176,7 @@ public class ClientServiceImpl implements ClientService {
             return pm.getProfessionByName(name);
         }
         catch(Exception ex){
-            System.out.println("error: " + ex);
-            return  pm.getProfessionByName(name);
+           throw ex;
         }
     }
     
