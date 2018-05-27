@@ -18,7 +18,9 @@ import com.mycompany.careerguidence.mappers.UsersMapper;
 import com.mycompany.careerguidence.mappers.WorksMapper;
 import com.mycompany.careerguidence.services.servicesInterfaces.AdminService;
 import java.util.List;
+import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 
 /*
@@ -27,6 +29,9 @@ import org.springframework.beans.factory.annotation.Autowired;
     Ilya, Vlad, Egor, Vanya, Kolya!
 
 */
+
+@Service 
+@Transactional
 
 public class AdminServiceImpl implements AdminService{
 

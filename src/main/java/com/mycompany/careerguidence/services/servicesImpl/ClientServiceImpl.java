@@ -4,9 +4,9 @@ import com.mycompany.careerguidence.dao.type.Enterprice;
 import com.mycompany.careerguidence.dao.type.Profession;
 import com.mycompany.careerguidence.dao.type.Question;
 import com.mycompany.careerguidence.dao.type.Test;
-import com.mycompany.careerguidence.dao.type.Test_has_Question;
 import com.mycompany.careerguidence.dao.type.User;
 import com.mycompany.careerguidence.dao.type.UserAnswer;
+import com.mycompany.careerguidence.mappers.AnswersMapper;
 import com.mycompany.careerguidence.mappers.EnterpricesMapper;
 import com.mycompany.careerguidence.mappers.ProfessionsMapper;
 import com.mycompany.careerguidence.mappers.QuestionsMapper;
@@ -14,8 +14,13 @@ import com.mycompany.careerguidence.mappers.TestsMapper;
 import com.mycompany.careerguidence.mappers.UsersMapper;
 import com.mycompany.careerguidence.services.servicesInterfaces.ClientService;
 import java.util.List;
+import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+
+@Service 
+@Transactional
 
 public class ClientServiceImpl implements ClientService {
     
@@ -25,6 +30,7 @@ public class ClientServiceImpl implements ClientService {
     QuestionsMapper qm;
     TestsMapper tm;
     ProfessionsMapper pm;
+    AnswersMapper am;
     
     //
     //              U S E R    A N D    E N T E R P R I C E
@@ -147,7 +153,7 @@ public class ClientServiceImpl implements ClientService {
     @Override
     public void postTest(List<UserAnswer> user_answers) {
         try{
-           
+          am.insertUserAnswers(user_answers);
         }
         catch(Exception ex){
             System.out.println(ex);
@@ -164,13 +170,15 @@ public class ClientServiceImpl implements ClientService {
     }
     //                         G E T    R E S U L T
     @Override
-    public Profession getResult(Long id_user, Long id_test) {
+    public String getResult(Long id_user, Long id_test) {
        try{
-            return pm.getProfession(id_user,id_test);
+           Profession pf = pm.getProfession(id_user, id_test);
+            return pf.getName_profession();
         }
         catch(Exception ex){
             System.out.println(ex);
-            return pm.getProfession(id_user,id_test);
+            Profession pf = pm.getProfession(id_user, id_test);
+            return pf.getName_profession();
         }      
     }
     public  Profession getResultByName(String name){

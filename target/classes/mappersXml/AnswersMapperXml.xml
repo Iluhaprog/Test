@@ -12,6 +12,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   	</resultMap>
 
 
+	<resultMap id = "UserAnswer" type = "com.mycompany.careerguidence.dao.type.UserAnswer" >
+		<id  	property = "id_user"  			column = "id_user" />
+		<result property = "id_questions" 		column = "id_questions" />
+		<result property = "flag" 				column = "flag" />
+	</resultMap>
+
+
+	<insert id = "insertUserAnswer" parameterType = "com.mycompany.careerguidence.dao.type.UserAnswer">
+		
+		INSERT INTO user_has_question(id_user,id_question,flag) VALUES
+			(id_user 	= ${id_user},
+			id_question = ${id_question},
+			flag  		= ${flag});
+
+	</insert>
+
   	<select id = "getAnswerById" parameterType = "java.lang.Long" resultMap="Answer">
   		
 		SELECT

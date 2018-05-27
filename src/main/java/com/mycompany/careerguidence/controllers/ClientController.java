@@ -7,6 +7,7 @@ import com.mycompany.careerguidence.dao.type.Question;
 import com.mycompany.careerguidence.dao.type.Test;
 import com.mycompany.careerguidence.dao.type.Test_has_Question;
 import com.mycompany.careerguidence.dao.type.User;
+import com.mycompany.careerguidence.dao.type.UserAnswer;
 import com.mycompany.careerguidence.services.servicesInterfaces.ClientService;
 import java.util.List;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -86,12 +87,12 @@ public class ClientController {
     }
     //          S E N D   A   T E S T   T O   G E T   T H E   R E S U L T
     @RequestMapping(value="/test/{test}",method = RequestMethod.POST)
-    public void postTest( @PathVariable Test_has_Question test){
+    public void postTest( @PathVariable List<UserAnswer> test){
         
     }
     //                         G E T    R E S U L T
     @RequestMapping(value="/login/{id_user}/test/{id}/result",method = RequestMethod.GET)
-    public  Profession getResult( @PathVariable Long id_user , @PathVariable Long id_test ){
+    public  String getResult( @PathVariable Long id_user , @PathVariable Long id_test ){
         return cl.getResult(id_user, id_test);
     }
     //GET BY NAME

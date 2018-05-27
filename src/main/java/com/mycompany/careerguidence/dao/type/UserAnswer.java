@@ -24,7 +24,7 @@ public class UserAnswer {
         this.id_question = id_question; 
     } 
 
-    public boolean isFlag() { 
+    public boolean getFlag() { 
         return flag; 
     } 
 

@@ -38,7 +38,7 @@ public interface ClientService {
     public void postTest( List<UserAnswer> user_answers);
     public Test getTestByName(String name);
     //                         G E T    R E S U L T
-    public Profession getResult(Long id_user, Long id_test);
+    public String getResult(Long id_user, Long id_test);
     public Profession getResultByName(String name);
     
 }

@@ -1,25 +1,25 @@
-/home/mr/Документы/MainProject/CareerGuidence/src/main/java/com/mycompany/careerguidence/dao/type/User.java
-/home/mr/Документы/MainProject/CareerGuidence/src/main/java/com/mycompany/careerguidence/services/servicesInterfaces/AdminService.java
-/home/mr/Документы/MainProject/CareerGuidence/src/main/java/com/mycompany/careerguidence/dao/type/UserAnswer.java
-/home/mr/Документы/MainProject/CareerGuidence/src/main/java/com/mycompany/careerguidence/dao/type/Answer.java
-/home/mr/Документы/MainProject/CareerGuidence/src/main/java/com/mycompany/careerguidence/services/servicesInterfaces/ClientService.java
-/home/mr/Документы/MainProject/CareerGuidence/src/main/java/com/mycompany/careerguidence/mappers/TestsMapper.java
-/home/mr/Документы/MainProject/CareerGuidence/src/main/java/com/mycompany/careerguidence/mappers/AnswersMapper.java
-/home/mr/Документы/MainProject/CareerGuidence/src/main/java/com/mycompany/careerguidence/dao/type/Work.java
-/home/mr/Документы/MainProject/CareerGuidence/src/main/java/com/mycompany/careerguidence/dao/type/Role.java
-/home/mr/Документы/MainProject/CareerGuidence/src/main/java/com/mycompany/careerguidence/mappers/QuestionsMapper.java
-/home/mr/Документы/MainProject/CareerGuidence/src/main/java/com/mycompany/careerguidence/mappers/WorksMapper.java
-/home/mr/Документы/MainProject/CareerGuidence/src/main/java/com/mycompany/careerguidence/mappers/RolesMapper.java
-/home/mr/Документы/MainProject/CareerGuidence/src/main/java/com/mycompany/careerguidence/controllers/ClientController.java
-/home/mr/Документы/MainProject/CareerGuidence/src/main/java/com/mycompany/careerguidence/dao/type/Test.java
-/home/mr/Документы/MainProject/CareerGuidence/src/main/java/com/mycompany/careerguidence/dao/type/Test_has_Question.java
-/home/mr/Документы/MainProject/CareerGuidence/src/main/java/com/mycompany/careerguidence/mappers/ProfessionsMapper.java
-/home/mr/Документы/MainProject/CareerGuidence/src/main/java/com/mycompany/careerguidence/services/servicesImpl/AdminServiceImpl.java
-/home/mr/Документы/MainProject/CareerGuidence/src/main/java/com/mycompany/careerguidence/controllers/AdminController.java
-/home/mr/Документы/MainProject/CareerGuidence/src/main/java/com/mycompany/careerguidence/dao/type/Enterprice_has_work.java
-/home/mr/Документы/MainProject/CareerGuidence/src/main/java/com/mycompany/careerguidence/dao/type/Enterprice.java
-/home/mr/Документы/MainProject/CareerGuidence/src/main/java/com/mycompany/careerguidence/mappers/EnterpricesMapper.java
-/home/mr/Документы/MainProject/CareerGuidence/src/main/java/com/mycompany/careerguidence/mappers/UsersMapper.java
-/home/mr/Документы/MainProject/CareerGuidence/src/main/java/com/mycompany/careerguidence/dao/type/Profession.java
-/home/mr/Документы/MainProject/CareerGuidence/src/main/java/com/mycompany/careerguidence/dao/type/Question.java
-/home/mr/Документы/MainProject/CareerGuidence/src/main/java/com/mycompany/careerguidence/services/servicesImpl/ClientServiceImpl.java
+/home/ilya/Documents/Java Projects/Test/src/main/java/com/mycompany/careerguidence/dao/type/Role.java
+/home/ilya/Documents/Java Projects/Test/src/main/java/com/mycompany/careerguidence/dao/type/Test.java
+/home/ilya/Documents/Java Projects/Test/src/main/java/com/mycompany/careerguidence/mappers/RolesMapper.java
+/home/ilya/Documents/Java Projects/Test/src/main/java/com/mycompany/careerguidence/dao/type/Test_has_Question.java
+/home/ilya/Documents/Java Projects/Test/src/main/java/com/mycompany/careerguidence/mappers/TestsMapper.java
+/home/ilya/Documents/Java Projects/Test/src/main/java/com/mycompany/careerguidence/dao/type/Work.java
+/home/ilya/Documents/Java Projects/Test/src/main/java/com/mycompany/careerguidence/dao/type/Answer.java
+/home/ilya/Documents/Java Projects/Test/src/main/java/com/mycompany/careerguidence/dao/type/Question.java
+/home/ilya/Documents/Java Projects/Test/src/main/java/com/mycompany/careerguidence/mappers/ProfessionsMapper.java
+/home/ilya/Documents/Java Projects/Test/src/main/java/com/mycompany/careerguidence/dao/type/Enterprice_has_work.java
+/home/ilya/Documents/Java Projects/Test/src/main/java/com/mycompany/careerguidence/services/servicesInterfaces/AdminService.java
+/home/ilya/Documents/Java Projects/Test/src/main/java/com/mycompany/careerguidence/mappers/WorksMapper.java
+/home/ilya/Documents/Java Projects/Test/src/main/java/com/mycompany/careerguidence/dao/type/UserAnswer.java
+/home/ilya/Documents/Java Projects/Test/src/main/java/com/mycompany/careerguidence/services/servicesImpl/ClientServiceImpl.java
+/home/ilya/Documents/Java Projects/Test/src/main/java/com/mycompany/careerguidence/services/servicesImpl/AdminServiceImpl.java
+/home/ilya/Documents/Java Projects/Test/src/main/java/com/mycompany/careerguidence/mappers/AnswersMapper.java
+/home/ilya/Documents/Java Projects/Test/src/main/java/com/mycompany/careerguidence/mappers/UsersMapper.java
+/home/ilya/Documents/Java Projects/Test/src/main/java/com/mycompany/careerguidence/dao/type/User.java
+/home/ilya/Documents/Java Projects/Test/src/main/java/com/mycompany/careerguidence/mappers/EnterpricesMapper.java
+/home/ilya/Documents/Java Projects/Test/src/main/java/com/mycompany/careerguidence/mappers/QuestionsMapper.java
+/home/ilya/Documents/Java Projects/Test/src/main/java/com/mycompany/careerguidence/dao/type/Enterprice.java
+/home/ilya/Documents/Java Projects/Test/src/main/java/com/mycompany/careerguidence/services/servicesInterfaces/ClientService.java
+/home/ilya/Documents/Java Projects/Test/src/main/java/com/mycompany/careerguidence/controllers/AdminController.java
+/home/ilya/Documents/Java Projects/Test/src/main/java/com/mycompany/careerguidence/controllers/ClientController.java
+/home/ilya/Documents/Java Projects/Test/src/main/java/com/mycompany/careerguidence/dao/type/Profession.java

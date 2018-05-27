@@ -24,7 +24,7 @@ public class Question {
         this.name_question = name_question;
     }
     //FLAG OF QUESTION
-    public boolean isFlag_question() {
+    public boolean getFlag_question() {
         return flag_question;
     }
 
