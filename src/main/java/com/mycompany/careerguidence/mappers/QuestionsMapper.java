@@ -17,5 +17,9 @@ public interface QuestionsMapper {
     public List<Question> getAll();
     //GET QUESTION BY NAME
     public Question getQuestionByName(String name);
+    //
+    public List<Question> getQuestions(Long id_user , Long id_test);
+    //
+    public void deleteAllQuestions();
     
 }

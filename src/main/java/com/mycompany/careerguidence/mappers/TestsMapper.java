@@ -11,7 +11,7 @@ public interface TestsMapper {
     //SELECT BY ID
     public Test getTestById(Long id);
     //UPDATE
-    public void updateTestUser(Test test);
+    public void updateTest(Test test);
     //DELETE
     public void deleteTestById(Long id);
     //SELECT ALL

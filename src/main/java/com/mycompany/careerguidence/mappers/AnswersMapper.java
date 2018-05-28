@@ -16,8 +16,8 @@ public interface AnswersMapper {
     public void deleteAnswerByid(Long id);
     //GET ALL
     public List<Answer> getAll();
-    
-    
+    //GET BY NAME
+    public Answer getAnswerByName(String name);    
     //FOR USER ANSWERS
     public void insertUserAnswers(List<UserAnswer> user_answer);
 }

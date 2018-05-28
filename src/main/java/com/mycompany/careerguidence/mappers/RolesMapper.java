@@ -10,7 +10,7 @@ public interface RolesMapper {
     //SELECT BY ID
     public Role getRoleById(Long id);
     //UPDATE
-    public void updateRoleUser(Role role);
+    public void updateRole(Role role);
     //DELETE
     public void deleteRoleById(Long id);
     //SELECT ALL

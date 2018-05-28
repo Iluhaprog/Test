@@ -19,4 +19,6 @@ public interface WorksMapper {
     //GET BY NAME
     public Work getWorkByName(String name);
     
+    public void deleteAllWorks();
+    
 }

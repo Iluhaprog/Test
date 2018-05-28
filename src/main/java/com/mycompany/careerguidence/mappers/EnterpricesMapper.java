@@ -9,9 +9,9 @@ public interface EnterpricesMapper {
     //INSERT
     public void insertEnterprice(Enterprice enterprice);
     //GET BY LOGIN + PASSWORD FOR CLIENT
-    public Enterprice getEnterpriceClient(String login , String password);
+    public Enterprice getEnterpriceByLoginAndByPassword(String login , String password);
     //GET ENTERPRICE BY ID FOR ADMIN
-    public Enterprice getEnterpriceAdmin(Long id);
+    public Enterprice getEnterpriceById(Long id);
     //UPDATE
     public void updateEnterprice(Enterprice enterprice);
     //DELETE BY ID
@@ -22,6 +22,7 @@ public interface EnterpricesMapper {
     public Enterprice_has_work getEnterpriseWithWorkById(Long id);
     //GET ENTERPRICE BY NAME
     public Enterprice getEnterpriceByName(String name);
-    
+    //
+    public void deleteAllEnterprices();
     
 }

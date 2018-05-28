@@ -9,9 +9,9 @@ public interface UsersMapper {
     //INSERT
     public void insertUser(User user);
     //SELECT BY LOGIN + PASSWORD FOR CLIENT
-    public User getUser( String login , String password );
+    public User getUserByLoginAndByPassword( String login , String password );
     //GET USER BY UD FOR ADMIN
-    public User getUserForAdmin(Long id);
+    public User getUserById(Long id);
     //UPDATE
     public void updateUser(User user);
     //DELETE
