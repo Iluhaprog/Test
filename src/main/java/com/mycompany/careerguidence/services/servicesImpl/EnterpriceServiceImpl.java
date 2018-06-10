@@ -15,12 +15,12 @@ import org.springframework.stereotype.Service;
 public class EnterpriceServiceImpl implements EnterpriceService{
 
     @Autowired
-    EnterpricesMapper em;
+    private EnterpricesMapper enterprice_mapper;
     
     @Override
     public Enterprice getEnterpriceById(Long id) {
         try{
-            return em.getEnterpriceById(id);
+            return enterprice_mapper.getEnterpriceById(id);
         }
         catch (Exception ex){
             throw ex;
@@ -30,7 +30,7 @@ public class EnterpriceServiceImpl implements EnterpriceService{
     @Override
     public Enterprice getEnterpriceByName(String name) {
         try{
-            return em.getEnterpriceByName(name);
+            return enterprice_mapper.getEnterpriceByName(name);
         }
         catch (Exception ex){
             throw ex;
@@ -40,7 +40,7 @@ public class EnterpriceServiceImpl implements EnterpriceService{
     @Override
     public void insertEnterprice(Enterprice enterprice) {
         try{
-            em.insertEnterprice(enterprice);
+            enterprice_mapper.insertEnterprice(enterprice);
         }
         catch (Exception ex){
             throw ex;
@@ -50,7 +50,7 @@ public class EnterpriceServiceImpl implements EnterpriceService{
     @Override
     public void updateEnterprice(Enterprice enterprice) {
         try{
-            em.updateEnterprice(enterprice);
+            enterprice_mapper.updateEnterprice(enterprice);
         }
         catch (Exception ex){
             throw ex;
@@ -60,7 +60,7 @@ public class EnterpriceServiceImpl implements EnterpriceService{
     @Override
     public void deleterEnterpriceById(Long id) {
         try{
-           em.deleteEnterpriceByid(id);
+           enterprice_mapper.deleteEnterpriceByid(id);
         }
         catch (Exception ex){
             throw ex;
@@ -70,7 +70,7 @@ public class EnterpriceServiceImpl implements EnterpriceService{
     @Override
     public List<Enterprice> getAll() {
         try{
-            return em.getAll();
+            return enterprice_mapper.getAll();
         }
         catch (Exception ex){
             throw ex;
@@ -80,7 +80,7 @@ public class EnterpriceServiceImpl implements EnterpriceService{
     @Override
     public Enterprice_has_work getEnterpriceWithWorkById(Long id) {
         try{
-            return em.getEnterpriseWithWorkById(id);
+            return enterprice_mapper.getEnterpriseWithWorkById(id);
         }
         catch (Exception ex){
             throw ex;
@@ -90,7 +90,7 @@ public class EnterpriceServiceImpl implements EnterpriceService{
     @Override
     public Enterprice getEnterpriceByLoginAndByPassword(String login, String password) {
         try{
-            return em.getEnterpriceByLoginAndByPassword(login, password);
+            return enterprice_mapper.getEnterpriceByLoginAndByPassword(login, password);
         }
         catch (Exception ex){
             throw ex;
@@ -100,7 +100,7 @@ public class EnterpriceServiceImpl implements EnterpriceService{
     @Override
     public void deleteAllEnterprices() {
         try{
-            em.deleteAllEnterprices();
+            enterprice_mapper.deleteAllEnterprices();
         }
         catch (Exception ex){
             throw ex;

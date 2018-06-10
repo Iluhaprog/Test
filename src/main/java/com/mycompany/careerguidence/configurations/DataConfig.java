@@ -41,15 +41,15 @@ public class DataConfig {
     } 
 
 
-    @Bean 
-    public SqlSessionFactoryBean sqlSessionFactory() throws Exception { 
-        SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean(); 
-        sessionFactory.setDataSource(dataSource()); 
-        sessionFactory.setMapperLocations(new PathMatchingResourcePatternResolver()
-                .getResources("classpath*:/src/main/resources/mappersXml/*.xml")); 
-        return sessionFactory; 
-    } 
-
+     @Bean
+    public SqlSessionFactory sqlSessionFactory() throws Exception {
+        SqlSessionFactoryBean sqlSessionFactory = new SqlSessionFactoryBean();
+        sqlSessionFactory.setDataSource(dataSource());
+        sqlSessionFactory.setTypeAliasesPackage("com.mycompany.testwebproject.dao.type");
+        sqlSessionFactory.setMapperLocations(new PathMatchingResourcePatternResolver()
+                .getResources("classpath                                                                                                                                                                                                                :/src/main/resources/mappersXml/*.xml"));
+        return sqlSessionFactory.getObject();
+    }
 
     @Bean 
     public MapperFactoryBean<AnswersMapper> AnswersMapper() throws Exception { 

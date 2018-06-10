@@ -14,12 +14,12 @@ import org.springframework.stereotype.Service;
 public class WorkServiceImpl implements WorkService{
     
     @Autowired
-    WorksMapper wm;
+    private WorksMapper work_mapper;
 
     @Override
     public Work getWorkById(Long id) {
         try{
-            return wm.getWorkById(id);
+            return work_mapper.getWorkById(id);
         }
         catch(Exception ex){
             throw ex;
@@ -29,7 +29,7 @@ public class WorkServiceImpl implements WorkService{
     @Override
     public Work getWorkByName(String name) {
         try{
-            return wm.getWorkByName(name);
+            return work_mapper.getWorkByName(name);
         }
         catch(Exception ex){
             throw ex;
@@ -39,7 +39,7 @@ public class WorkServiceImpl implements WorkService{
     @Override
     public void insertWork(Work work) {
         try{
-            wm.insertWork(work);
+            work_mapper.insertWork(work);
         }
         catch(Exception ex){
             throw ex;
@@ -49,7 +49,7 @@ public class WorkServiceImpl implements WorkService{
     @Override
     public void updateWork(Work work) {
         try{
-            wm.updateWork(work);
+            work_mapper.updateWork(work);
         }
         catch(Exception ex){
             throw ex;
@@ -59,7 +59,7 @@ public class WorkServiceImpl implements WorkService{
     @Override
     public void deleteWorkbyId(Long id) {
         try{
-            wm.deleteWorkById(id);
+            work_mapper.deleteWorkById(id);
         }
         catch(Exception ex){
             throw ex;
@@ -69,7 +69,7 @@ public class WorkServiceImpl implements WorkService{
     @Override
     public List<Work> getAllWorks() {
         try{
-            return wm.getAll();
+            return work_mapper.getAll();
         }
         catch(Exception ex){
             throw ex;
@@ -79,7 +79,7 @@ public class WorkServiceImpl implements WorkService{
     @Override
     public void deleteAllWorks() {
         try{
-           wm.deleteAllWorks();
+           work_mapper.deleteAllWorks();
         }
         catch(Exception ex){
             throw ex;

@@ -17,13 +17,15 @@ import org.springframework.stereotype.Service;
 public class AnswerServiceImpl implements AnswerService{
 
     @Autowired
-    AnswersMapper       am;
-    ProfessionsMapper   pm;
+    private AnswersMapper       answer_mapper;
+    
+    @Autowired
+    ProfessionsMapper   profession_mapper;
     
     @Override
     public Answer getAnswerById(Long id) {
         try{
-            return  am.getAnswerById(id);
+            return  answer_mapper.getAnswerById(id);
         }
         catch(Exception ex){
             throw ex;
@@ -33,7 +35,7 @@ public class AnswerServiceImpl implements AnswerService{
     @Override
     public Answer getAnswerByName(String name) {
         try{
-            return am.getAnswerByName(name);
+            return answer_mapper.getAnswerByName(name);
         }
         catch(Exception ex){
             throw ex;
@@ -43,7 +45,7 @@ public class AnswerServiceImpl implements AnswerService{
     @Override
     public void inserAnswer(Answer answer) {
         try{
-            am.insertAnswer(answer);
+            answer_mapper.insertAnswer(answer);
         }
         catch(Exception ex){
             throw ex;
@@ -53,7 +55,7 @@ public class AnswerServiceImpl implements AnswerService{
     @Override
     public void updateAnswer(Answer answer) {
         try{
-            am.updateAnswer(answer);
+            answer_mapper.updateAnswer(answer);
         }
         catch(Exception ex){
             throw ex;
@@ -63,7 +65,7 @@ public class AnswerServiceImpl implements AnswerService{
     @Override
     public void deleteAnswerById(Long id) {
         try{
-            am.deleteAnswerByid(id);
+            answer_mapper.deleteAnswerByid(id);
         }
         catch(Exception ex){
             throw ex;
@@ -73,7 +75,7 @@ public class AnswerServiceImpl implements AnswerService{
     @Override
     public List<Answer> getAllAnswers() {
         try{
-            return am.getAll();
+            return answer_mapper.getAll();
         }
         catch(Exception ex){
             throw ex;
@@ -83,7 +85,7 @@ public class AnswerServiceImpl implements AnswerService{
     @Override
     public void insertUserAnswers(List<UserAnswer> user_answer) {
         try{
-            am.insertUserAnswers(user_answer);
+            answer_mapper.insertUserAnswers(user_answer);
         }
         catch(Exception ex){
             throw ex;
@@ -93,7 +95,7 @@ public class AnswerServiceImpl implements AnswerService{
     @Override
     public String getResult(Long id_user, Long id_test) {
          try{
-            return pm.getResult(id_user, id_test).getName_profession();
+            return profession_mapper.getResult(id_user, id_test).getName_profession();
         }
         catch(Exception ex){
             throw ex;

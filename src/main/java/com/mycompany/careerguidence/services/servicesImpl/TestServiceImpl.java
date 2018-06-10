@@ -15,12 +15,12 @@ import org.springframework.stereotype.Service;
 public class TestServiceImpl implements TestService {
     
     @Autowired
-    TestsMapper tm;
+    private TestsMapper test_mapper;
 
     @Override
     public Test getTestById(Long id) {
         try{
-            return tm.getTestById(id);
+            return test_mapper.getTestById(id);
         }
         catch(Exception ex){
             throw ex;
@@ -30,7 +30,7 @@ public class TestServiceImpl implements TestService {
     @Override
     public Test getTestByName(String name) {
         try{
-            return tm.getTestByName(name);
+            return test_mapper.getTestByName(name);
         }
         catch(Exception ex){
             throw ex;
@@ -40,7 +40,7 @@ public class TestServiceImpl implements TestService {
     @Override
     public void insertTest(Test test) {
         try{
-            tm.insertTest(test);
+            test_mapper.insertTest(test);
         }
         catch(Exception ex){
             throw ex;
@@ -50,7 +50,7 @@ public class TestServiceImpl implements TestService {
     @Override
     public void updateTest(Test test) {
         try{
-            tm.updateTest(test);
+            test_mapper.updateTest(test);
         }
         catch(Exception ex){
             throw ex;
@@ -60,7 +60,7 @@ public class TestServiceImpl implements TestService {
     @Override
     public void deleteTestById(Long id) {
         try{
-            tm.deleteTestById(id);
+            test_mapper.deleteTestById(id);
         }
         catch(Exception ex){
             throw ex;
@@ -70,7 +70,7 @@ public class TestServiceImpl implements TestService {
     @Override
     public List<Test> getAllTests() {
         try{
-            return tm.getAll();
+            return test_mapper.getAll();
         }
         catch(Exception ex){
             throw ex;
@@ -80,7 +80,7 @@ public class TestServiceImpl implements TestService {
     @Override
     public Test_has_Question getTestWithQuestionById(Long id) {
         try{
-            return tm.getTestWithQuestionById(id);
+            return test_mapper.getTestWithQuestionById(id);
         }
         catch(Exception ex){
             throw ex;
@@ -90,7 +90,7 @@ public class TestServiceImpl implements TestService {
     @Override
     public void deleteAllTest() {
         try{
-            tm.deleteAllTest();
+            test_mapper.deleteAllTest();
         }
         catch(Exception ex){
             throw ex;

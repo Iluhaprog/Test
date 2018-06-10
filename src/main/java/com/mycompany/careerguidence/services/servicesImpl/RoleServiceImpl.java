@@ -15,12 +15,12 @@ import org.springframework.stereotype.Service;
 public class RoleServiceImpl implements RoleService{
     
     @Autowired
-    RolesMapper rm;
+    private RolesMapper role_mapper;
 
     @Override
     public Role getRoleById(Long id) {
         try{
-            return rm.getRoleById(id);
+            return role_mapper.getRoleById(id);
         }
         catch(Exception ex){
             throw ex;
@@ -30,7 +30,7 @@ public class RoleServiceImpl implements RoleService{
     @Override
     public Role getRoleByName(String name) {
         try{
-            return rm.getRoleByName(name);
+            return role_mapper.getRoleByName(name);
         }
         catch(Exception ex){
             throw ex;
@@ -40,7 +40,7 @@ public class RoleServiceImpl implements RoleService{
     @Override
     public void insertRole(Role role) {
         try{
-            rm.insertRole(role);
+            role_mapper.insertRole(role);
         }
         catch(Exception ex){
             throw ex;
@@ -50,7 +50,7 @@ public class RoleServiceImpl implements RoleService{
     @Override
     public void updateRole(Role role) {
         try{
-            rm.updateRole(role);
+            role_mapper.updateRole(role);
         }
         catch(Exception ex){
             throw ex;
@@ -60,7 +60,7 @@ public class RoleServiceImpl implements RoleService{
     @Override
     public void deleteRoleById(Long id) {
         try{
-            rm.deleteRoleById(id);
+            role_mapper.deleteRoleById(id);
         }
         catch(Exception ex){
             throw ex;
@@ -70,7 +70,7 @@ public class RoleServiceImpl implements RoleService{
     @Override
     public List<Role> getAllRoles() {
         try{
-            return rm.getAll();
+            return role_mapper.getAll();
         }
         catch(Exception ex){
             throw ex;

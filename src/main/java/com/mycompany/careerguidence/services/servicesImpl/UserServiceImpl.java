@@ -10,16 +10,15 @@ import org.springframework.stereotype.Service;
 
 @Service 
 @Transactional
-
 public class UserServiceImpl implements UserService {
     
     @Autowired
-    UsersMapper um;
+    private UsersMapper user_mapper;
 
     @Override
     public User getUserById(Long id) {
         try{
-            return um.getUserById(id);
+            return user_mapper.getUserById(id);
         }
         catch(Exception ex){
             throw ex;
@@ -29,7 +28,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public User getUserByLoginAndByPassword(String login, String password) {
         try{
-            return um.getUserByLoginAndByPassword(login, password);
+            return user_mapper.getUserByLoginAndByPassword(login, password);
         }
         catch(Exception ex){
             throw ex;
@@ -39,7 +38,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public User getUserByName(String name) {
         try{
-            return um.getUserByName(name);
+            return user_mapper.getUserByName(name);
         }
         catch(Exception ex){
             throw ex;
@@ -49,7 +48,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public void insertUser(User user) {
         try{
-            um.insertUser(user);
+            user_mapper.insertUser(user);
         }
         catch(Exception ex){
             throw ex;
@@ -59,7 +58,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public void updateUser(User user) {
         try{
-            um.updateUser(user);
+            user_mapper.updateUser(user);
         }
         catch(Exception ex){
             throw ex;
@@ -69,7 +68,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public void deleteUserByid(Long id) {
         try{
-            um.deleteUserById(id);
+            user_mapper.deleteUserById(id);
         }
         catch(Exception ex){
             throw ex;
@@ -79,7 +78,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> getAllUsers() {
         try{
-            return um.getAll();
+            return user_mapper.getAll();
         }
         catch(Exception ex){
             throw ex;
@@ -88,7 +87,12 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void deleteAllUsers() {
-        um.deleteAllUsers();
+        try{
+            user_mapper.deleteAllUsers();
+        }
+        catch(Exception ex){
+            throw ex;
+        }
     }
     
     

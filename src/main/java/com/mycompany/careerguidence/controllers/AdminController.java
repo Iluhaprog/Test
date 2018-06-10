@@ -33,17 +33,25 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController 
 @RequestMapping("/admin")
+
 public class AdminController {
 
     @Autowired
-    TestService         ts;
-    UserService         us;
-    EnterpriceService   es;
-    QuestionService     qs;
-    AnswerService       as;
-    ProfessionService   ps;
-    RoleService         rs;
-    WorkService         ws;
+    private TestService         test_service;
+    @Autowired
+    private UserService         user_service;
+    @Autowired
+    private EnterpriceService   enterprice_service;
+    @Autowired
+    private QuestionService     question_service;
+    @Autowired
+    private AnswerService       answer_service;
+    @Autowired
+    private ProfessionService   profession_service;
+    @Autowired
+    private RoleService         rs;
+    @Autowired
+    private WorkService         work_service;
     
     
     //__________________________________________________________________________
@@ -51,12 +59,12 @@ public class AdminController {
     //    G E T   A L L   T E S T S
     @RequestMapping(value = "/allTest" ,method = RequestMethod.GET)
     public List<Test> getAllTests(){
-        return ts.getAllTests();
+        return test_service.getAllTests();
     }
     //  G E T    T E S T   B Y   I D    
     @RequestMapping(value="/test/{id}",method = RequestMethod.GET)
     public Test geTestById( @PathVariable Long id ){
-        return ts.getTestById(id);
+        return test_service.getTestById(id);
     }
     //          !!! END CONTROLLERS BY ILYA
     
@@ -66,51 +74,51 @@ public class AdminController {
     @RequestMapping(value = "/-//-/getUser", method = RequestMethod.GET) 
     public User getUser( 
     @RequestParam(value = "id", required = false, defaultValue = "0") Long id){ 
-        return us.getUserById(id);
+        return user_service.getUserById(id);
     } 
 
     //G E T   A L L   E N T E R P R I C E S 
     @RequestMapping(value = "/-//-/getAllSpecializes", method = RequestMethod.GET) 
     public List<Profession> getAllProfessions(){ 
-        return ps.getAllProfessions();
+        return profession_service.getAllProfessions();
     } 
 
     //G E T   S P E C I A L I Z E   B Y   I D
     @RequestMapping(value = "/-//-/getSpecialize", method = RequestMethod.GET) 
     public Profession getSpecialize( 
     @RequestParam(value = "id", required = false, defaultValue = "0") Long id){ 
-        return ps.getProfessionById(id);
+        return profession_service.getProfessionById(id);
     } 
 
     //G E T   E N T E R P R I C E   B Y   I D 
     @RequestMapping(value = "/-//-/getCompany", method = RequestMethod.GET) 
     public Enterprice getEnterprice( 
     @RequestParam(value = "id", required = false, defaultValue = "0") Long id){ 
-        return es.getEnterpriceById(id);
+        return enterprice_service.getEnterpriceById(id);
     } 
 
     //G E T    A L L   E N T E R P R I C E S
     @RequestMapping(value = "/-//-/getAllEnterprice", method = RequestMethod.GET) 
     public List<Enterprice> getAllEnterprices(){ 
-        return es.getAll();
+        return enterprice_service.getAll();
     } 
 
     //D E L E T E    U S E R    B Y   I D
     @RequestMapping(path="/deleteUser/{deleteId}" , method = RequestMethod.DELETE) 
     public void deleteUser( @PathVariable("deleteId") Long id ){ 
-        us.deleteUserByid(id);
+        user_service.deleteUserByid(id);
     } 
 
     //D E L E T E    A L L    U S E R S
     @RequestMapping(path="/deleteAllUsers", method = RequestMethod.DELETE) 
     public void DeleteAllUsers(){ 
-        us.deleteAllUsers();
+        user_service.deleteAllUsers();
     } 
 
     //D E L E T E    A L L    T E S T S
     @RequestMapping(path="/deleteAllTests", method = RequestMethod.DELETE) 
     public void DeleteAllTests(){ 
-        ts.deleteAllTest();
+        test_service.deleteAllTest();
     } 
     //          !!! END CONTROLLERS BY EGOR  !!!
     
@@ -119,43 +127,43 @@ public class AdminController {
     //Удаляет ответы по id 
     @RequestMapping(path="/deleteid/{DeleteAnswerByID}" , method = RequestMethod.DELETE) 
     public void DeleteAnswerById( @PathVariable("DeleteAnswerByID") Long id){ 
-        as.deleteAnswerById(id);
+        answer_service.deleteAnswerById(id);
     } 
     
     //Удаляет все ответы 
     @RequestMapping(path="/deleteAll" , method = RequestMethod.DELETE) 
     public void DeleteAnswersAll(){ 
-        as.getAllAnswers();
+        answer_service.getAllAnswers();
     } 
     
     // Обновляет тесты 
     @RequestMapping(path = "/update/updateid",method = RequestMethod.PUT) 
     public void UpdateTest(@RequestBody Test tests) { 
-        ts.updateTest(tests);
+        test_service.updateTest(tests);
     } 
     
     //Обновляет вопросы 
     @RequestMapping(path = "/update/updateid",method = RequestMethod.PUT) 
     public void updateQuestion(@RequestBody Question questions) { 
-        qs.updateQuestion(questions);
+        question_service.updateQuestion(questions);
     } 
     
     //Обновление вопросов 
     @RequestMapping(path = "/update/updateid",method = RequestMethod.PUT) 
     public void updateAnswer(@RequestBody Answer answers) { 
-        as.updateAnswer(answers);
+        answer_service.updateAnswer(answers);
     } 
     
     //Обновление юзеров 
     @RequestMapping(path = "/update/updateid",method = RequestMethod.PUT) 
     public void updateUsers(@RequestBody User users) { 
-        us.updateUser(users);
+        user_service.updateUser(users);
     } 
     
     //обновление компаний 
     @RequestMapping(path = "/update/updateid",method = RequestMethod.PUT) 
     public void updateEnterprice(@RequestBody Enterprice interprices) { 
-        es.updateEnterprice(interprices);
+        enterprice_service.updateEnterprice(interprices);
     } 
     //      !!! END CONTROLLERS BY VANYA !!!
     
@@ -164,12 +172,12 @@ public class AdminController {
     //D E L E T E    T E S T   B Y  I D
     @RequestMapping(path="/deleteid/{deleteTestById}" , method = RequestMethod.DELETE) 
     public void deleteTestById( @PathVariable("deleteTestById") Long id){ 
-        ts.deleteTestById(id);
+        test_service.deleteTestById(id);
     } 
     //D E L E T E   P R O F E S S I O N   B Y   I D
     @RequestMapping(path="/deletePositionById/{deletePositionById}" , method = RequestMethod.DELETE) 
     public void deleteWorkById( @PathVariable("deletePositionById") Long id){ 
-        ws.deleteWorkbyId(id);
+        work_service.deleteWorkbyId(id);
     } 
     //D E L E T E    A L L    P R O F E S S I O N
 //    @RequestMapping(path = "/deleteAllWorks",method = RequestMethod.DELETE) 
@@ -179,21 +187,21 @@ public class AdminController {
     //D E L E T E    A L L    E N T E R P R I C E S
     @RequestMapping(path = "/deleteAllEnterprices",method = RequestMethod.DELETE) 
     public void deleteAllEnterprices(@RequestBody Enterprice enterprice) { 
-        es.deleteAllEnterprices();
+        enterprice_service.deleteAllEnterprices();
     } 
     //D E L E T E   E N T E R P R I C E   B Y   I D
     @RequestMapping(path = "/deleteEnterpricesById",method = RequestMethod.DELETE) 
     public void deleteEnterpricesById(Long id) {
-        es.deleterEnterpriceById(id);
+        enterprice_service.deleterEnterpriceById(id);
     } 
     //DELETE QUESTION BY ID
     @RequestMapping(path = "/deleteQustionById",method = RequestMethod.DELETE) 
     public void deleteQustionById(Long id) { 
-        qs.deleteQuestionById(id);
+        question_service.deleteQuestionById(id);
     } 
     @RequestMapping(path = "/delete/deleteid",method = RequestMethod.DELETE)
     public void deleteAllQuestion(Long id) { 
-        qs.deleteAllQuestions();
+        question_service.deleteAllQuestions();
     } 
     //          !!! END CONTROLLERS BY KOLYA !!!
     
@@ -202,17 +210,17 @@ public class AdminController {
     
     @RequestMapping(path = "/getanswerbyid",method = RequestMethod.GET)
     public Answer getAnswerById(Long id){
-        return as.getAnswerById(id);
+        return answer_service.getAnswerById(id);
     }
     
     @RequestMapping(path = "/insertanswer",method = RequestMethod.POST)
     public void insertAnswer(@RequestBody Answer answer){
-        as.inserAnswer(answer);
+        answer_service.inserAnswer(answer);
     }
     
     @RequestMapping(path = "/deleteanswer",method = RequestMethod.DELETE)
     public void deleteAnswer(Long id){
-        as.deleteAnswerById(id);
+        answer_service.deleteAnswerById(id);
     }
     
     

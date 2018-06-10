@@ -14,12 +14,12 @@ import org.springframework.stereotype.Service;
 public class ProfessionServiceImpl implements ProfessionService {
 
     @Autowired
-    ProfessionsMapper pm;
+    private ProfessionsMapper profession_mapper;
     
     @Override
     public Profession getProfessionById(Long id) {
         try{
-            return pm.getProfessionById(id);
+            return profession_mapper.getProfessionById(id);
         }
         catch(Exception ex){
             throw ex;
@@ -29,7 +29,7 @@ public class ProfessionServiceImpl implements ProfessionService {
     @Override
     public Profession getProfessionByName(String name) {
         try{
-            return pm.getProfessionByName(name);
+            return profession_mapper.getProfessionByName(name);
         }
         catch(Exception ex){
             throw ex;
@@ -39,7 +39,7 @@ public class ProfessionServiceImpl implements ProfessionService {
     @Override
     public void insertProfession(Profession profession) {
         try{
-            pm.insertProfession(profession);
+            profession_mapper.insertProfession(profession);
         }
         catch(Exception ex){
             throw ex;
@@ -49,7 +49,7 @@ public class ProfessionServiceImpl implements ProfessionService {
     @Override
     public void updateProfession(Profession profession) {
         try{
-            pm.updateProfession(profession);
+            profession_mapper.updateProfession(profession);
         }
         catch(Exception ex){
             throw ex;
@@ -59,7 +59,7 @@ public class ProfessionServiceImpl implements ProfessionService {
     @Override
     public void deleteProfessionById(Long id) {
         try{
-            pm.deleteProfessionByid(id);
+            profession_mapper.deleteProfessionByid(id);
         }
         catch(Exception ex){
             throw ex;
@@ -69,7 +69,7 @@ public class ProfessionServiceImpl implements ProfessionService {
     @Override
     public List<Profession> getAllProfessions() {
         try{
-            return pm.getAll();
+            return profession_mapper.getAll();
         }
         catch(Exception ex){
             throw ex;
