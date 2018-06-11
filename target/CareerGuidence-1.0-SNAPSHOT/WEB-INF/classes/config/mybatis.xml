@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+    PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-config.dtd">
+ 
+<configuration>
+    <typeAliases>
+        <typeAlias type="com.mycompany.careerguidence.mappers.AnswersMapper" alias = "AnswerMapper"/>
+        <typeAlias type="com.mycompany.careerguidence.mappers.EnterpricesMapper" alias = "EnterpriceMapper"/>
+        <typeAlias type="com.mycompany.careerguidence.mappers.ProfessionsMapper" alias = "ProfessionMapper"/>
+        <typeAlias type="com.mycompany.careerguidence.mappers.QuestionsMapper" alias = "QuestionMapper"/>
+        <typeAlias type="com.mycompany.careerguidence.mappers.RolesMapper" alias = "RoleMapper"/>
+        <typeAlias type="com.mycompany.careerguidence.mappers.SpecializesMapper" alias = "SpecializeMapper"/>
+        <typeAlias type="com.mycompany.careerguidence.mappers.TestsMapper" alias = "TestMapper"/>
+        <typeAlias type="com.mycompany.careerguidence.mappers.UsersMapper" alias = "UserMapper"/>
+        <typeAlias type="com.mycompany.careerguidence.mappers.WorksMapper" alias = "WorkMapper"/>
+    </typeAliases>
+
+    <mappers>
+        <mapper resource="mappersXml/AnswersMapperXml.xml" />
+        <mapper resource="mappersXml/EnterpriceMapperXml.xml" />
+        <mapper resource="mappersXml/ProfessionMapperXml.xml" />
+        <mapper resource="mappersXml/QuestionMapperXml.xml" />
+        <mapper resource="mappersXml/RolesMapperXml.xml" />
+        <mapper resource="mappersXml/SpecializesMapperXml.xml" />
+        <mapper resource="mappersXml/TestsMapperXml.xml" />
+        <mapper resource="mappersXml/UsersMapperXml.xml" />
+        <mapper resource="mappersXml/WorksMapperXml.xml" />
+    </mappers>
+</configuration>

@@ -1,0 +1,120 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"	
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans	
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+	 
+		http://www.springframework.org/schema/tx 
+		http://www.springframework.org/schema/tx/spring-tx.xsd
+		 
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context.xsd">
+ 
+	<context:component-scan base-package="com.mycompany.careerguidence" />
+ 
+	<!--
+		Instruct Spring to perform declarative transaction management
+		automatically on annotated classes.
+	-->	
+	<tx:annotation-driven transaction-manager="transactionManager" />  
+    <bean id="transactionManager"
+          class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>  
+    	
+	<!-- =============== MyBATIS beans configuration ================== -->
+	<!-- AnswersMapper -->
+	<bean id="AnswersMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+	   <property name="sqlSessionFactory" ref="sqlSessionFactory"/>    
+	   <property name="mapperInterface" value="com.mycompany.careerguidence.mappers.AnswersMapper" />
+	</bean>
+	<!-- EnterpricesMapper -->
+	<bean id="EnterpricesMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+	   <property name="sqlSessionFactory" ref="sqlSessionFactory"/>    
+	   <property name="mapperInterface" value="com.mycompany.careerguidence.mappers.EnterpricesMapper" />
+	</bean>
+	<!-- ProfessionsMapper -->
+	<bean id="ProfessonsMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+	   <property name="sqlSessionFactory" ref="sqlSessionFactory"/>    
+	   <property name="mapperInterface" value="com.mycompany.careerguidence.mappers.ProfessonsMapper" />
+	</bean>
+	<!-- QuestionsMapper -->
+	<bean id="QuestionsMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+	   <property name="sqlSessionFactory" ref="sqlSessionFactory"/>    
+	   <property name="mapperInterface" value="com.mycompany.careerguidence.mappers.QuestionsMapper" />
+	</bean>
+	<!-- RolesMapper -->
+	<bean id="RolesMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+	   <property name="sqlSessionFactory" ref="sqlSessionFactory"/>    
+	   <property name="mapperInterface" value="com.mycompany.careerguidence.mappers.RolesMapper" />
+	</bean>
+	<!-- SpecializesMapper -->
+	<bean id="SpecializesMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+	   <property name="sqlSessionFactory" ref="sqlSessionFactory"/>    
+	   <property name="mapperInterface" value="com.mycompany.careerguidence.mappers.SpecializesMapper" />
+	</bean>
+	<!-- TestsMapper -->
+	<bean id="TestsMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+	   <property name="sqlSessionFactory" ref="sqlSessionFactory"/>    
+	   <property name="mapperInterface" value="com.mycompany.careerguidence.mappers.TestsMapper" />
+	</bean>
+	<!-- UsersMapper -->
+	<bean id="UsersMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+	   <property name="sqlSessionFactory" ref="sqlSessionFactory"/>    
+	   <property name="mapperInterface" value="com.mycompany.careerguidence.mappers.UsersMapper" />
+	</bean>
+	<!-- WorksMapper -->
+	<bean id="WorksMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+	   <property name="sqlSessionFactory" ref="sqlSessionFactory"/>    
+	   <property name="mapperInterface" value="com.mycompany.careerguidence.mappers.WorksMapper" />
+	</bean>
+
+	
+	<!-- sqlSessionFactory -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+	    <property name="dataSource" ref="dataSource" />
+	    <property name="configLocation" value="classpath:config/mybatis.xml"/>
+	</bean>
+	
+	<!-- AnswerService -->
+    <bean id="AnswerService" class="com.mycompany.careerguidence.services.servicesInterfaces.AnswerService" >
+    	<property name="answer_mapper" ref="answer_mapper"/>
+    </bean>
+	<!-- EnterpriceService -->
+	<bean id="EnterpriceService" class="com.mycompany.careerguidence.services.servicesInterfaces.EnterpriceService" >
+    	<property name="enterprice_mapper" ref="enterprice_mapper"/>
+    </bean>
+    <!-- ProfessionService -->
+    <bean id="ProfessionService" class="com.mycompany.careerguidence.services.servicesInterfaces.ProfessionService" >
+    	<property name="profession_mapper" ref="profession_mapper"/>
+    </bean>
+    <!-- QuestionService -->
+    <bean id="QuestioService" class="com.mycompany.careerguidence.services.servicesInterfaces.QuestioService" >
+    	<property name="question_mapper" ref="question_mapper"/>
+    </bean>
+    <!-- RoleService -->
+	<bean id="RoleService" class="com.mycompany.careerguidence.services.servicesInterfaces.RoleService" >
+    	<property name="role_mapper" ref="role_mapper"/>
+    </bean>
+    <!-- TestService -->
+    <bean id="TestService" class="com.mycompany.careerguidence.services.servicesInterfaces.TestService" >
+    	<property name="test_mapper" ref="test_mapper"/>
+    </bean>
+	<!-- UserService -->
+	<bean id="UserService" class="com.mycompany.careerguidence.services.servicesInterfaces.UserService" >
+    	<property name="user_mapper" ref="user_mapper"/>
+    </bean>
+    <!-- WorkService -->
+    <bean id="WorkService" class="com.mycompany.careerguidence.services.servicesInterfaces.WorkService" >
+    	<property name="work_mapper" ref="work_mapper"/>
+    </bean>
+
+
+    
+	<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean" scope="singleton">
+	    <property name="jndiName" value="java:comp/env/jdbc/restDemoDB" />
+	    <property name="resourceRef" value="true" />        
+	</bean>
+</beans>

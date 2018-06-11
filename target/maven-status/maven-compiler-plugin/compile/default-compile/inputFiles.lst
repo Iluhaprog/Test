@@ -9,10 +9,8 @@
 /home/ilya/Documents/Java Projects/Test/src/main/java/com/mycompany/careerguidence/dao/type/Work.java
 /home/ilya/Documents/Java Projects/Test/src/main/java/com/mycompany/careerguidence/dao/type/Answer.java
 /home/ilya/Documents/Java Projects/Test/src/main/java/com/mycompany/careerguidence/dao/type/Question.java
-/home/ilya/Documents/Java Projects/Test/src/main/java/com/mycompany/careerguidence/configurations/DataConfig.java
 /home/ilya/Documents/Java Projects/Test/src/main/java/com/mycompany/careerguidence/mappers/ProfessionsMapper.java
 /home/ilya/Documents/Java Projects/Test/src/main/java/com/mycompany/careerguidence/dao/type/Enterprice_has_work.java
-/home/ilya/Documents/Java Projects/Test/src/main/java/com/mycompany/careerguidence/configurations/AppConfig.java
 /home/ilya/Documents/Java Projects/Test/src/main/java/com/mycompany/careerguidence/mappers/WorksMapper.java
 /home/ilya/Documents/Java Projects/Test/src/main/java/com/mycompany/careerguidence/dao/type/UserAnswer.java
 /home/ilya/Documents/Java Projects/Test/src/main/java/com/mycompany/careerguidence/services/servicesImpl/WorkServiceImpl.java
@@ -31,7 +29,6 @@
 /home/ilya/Documents/Java Projects/Test/src/main/java/com/mycompany/careerguidence/mappers/QuestionsMapper.java
 /home/ilya/Documents/Java Projects/Test/src/main/java/com/mycompany/careerguidence/services/servicesInterfaces/AnswerService.java
 /home/ilya/Documents/Java Projects/Test/src/main/java/com/mycompany/careerguidence/services/servicesInterfaces/TestService.java
-/home/ilya/Documents/Java Projects/Test/src/main/java/com/mycompany/careerguidence/configurations/AppInit.java
 /home/ilya/Documents/Java Projects/Test/src/main/java/com/mycompany/careerguidence/dao/type/Enterprice.java
 /home/ilya/Documents/Java Projects/Test/src/main/java/com/mycompany/careerguidence/services/servicesInterfaces/WorkService.java
 /home/ilya/Documents/Java Projects/Test/src/main/java/com/mycompany/careerguidence/services/servicesImpl/TestServiceImpl.java
